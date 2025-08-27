@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: mooxy;
+  src: url(/Fonts/mooxy.ttf);
+}
+
+@font-face {
+  font-family: britanica;
+  src: url(/Fonts/britanica-expanded-regular.ttf);
+}
+
+@font-face {
+  font-family: britanica-bold;
+  src: url(/Fonts/britanica-bold.ttf);
+}
+
+@font-face {
+  font-family: random;
+  src: url(/Fonts/480be62819a41107-s.p.otf);
+}
+
+@font-face {
+  font-family: regular;
+  src: url(/Fonts/SpaceGrotesk-Regular.ttf);
+}
+@font-face {
+  font-family: light;
+  src: url(/Fonts/SpaceGrotesk-Light.ttf);
+}
+
+@font-face {
+  font-family: medium;
+  src: url(/Fonts/SpaceGrotesk-Medium.ttf);
+}
+
+@font-face {
+  font-family: bold;
+  src: url(/Fonts/SpaceGrotesk-Bold.ttf);
+}
+
+@font-face {
+  font-family: semibold;
+  src: url(/Fonts/SpaceGrotesk-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: variable;
+  src: url(/Fonts/SpaceGrotesk-VariableFont_wght.ttf);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  cursor: url('/Icons/cursor.png'), auto !important;
+}
