@@ -122,7 +122,7 @@ function Home() {
 
   return (
     <div className="h-[80vh] ">
-      {/* <Loader /> */}
+      <Loader />
       <div className="text-white relative overflow-hidden">
         {/* Background MUSTAFA text */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-x-hidden">
