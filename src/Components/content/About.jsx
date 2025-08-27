@@ -181,7 +181,7 @@ function About() {
                 <img
                   src="/Icons/behance.svg"
                   alt="Behance"
-                  className="w-21 object-contain hover:scale-105 transition-transform duration-200 bg-red-400 leading-none h-fit"
+                  className="w-21 object-contain hover:scale-105 transition-transform duration-200 leading-none h-fit"
                 />
               </a>
 
