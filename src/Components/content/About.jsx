@@ -31,7 +31,8 @@ function About() {
   };
 
   return (
-    <div className="bg-[#121315] min-h-screen w-full flex items-center justify-center px-4 py-6 sm:px-8 sm:py-10 lg:px-65 lg:py-35">
+    <div className="bg-[#121315] min-h-screen w-full flex items-center justify-center px-4 py-6 sm:px-8 sm:py-10 lg:px- lg:py-35 ">
+    
       {/* Desktop Layout */}
       <div className="hidden lg:flex h-[92vh] w-[70.3vw] p-2 gap-2 text-white">
         {/* col 1 */}
@@ -75,13 +76,16 @@ function About() {
           </div>
           <div className="flex h-[35.9vh] w-full gap-[1vh]">
             <div className="card relative flex w-[50.8vw] max-w-[418px] cursor-pointer flex-col justify-center gap-8 focus:z-[99px] bg-[#4D389B] border-[7px] border-[#644DBA] px-8 rounded-3xl ">
-              <div className="absolute top-13 left-80">
-                <Waypoints size={35} />
+              <div className="flex items-center justify-between">
+                <h2 className="text-left text-[2.5vw] font-[bold] tracking-tight uppercase">
+                  Skills.
+                </h2>
+                <div>
+                  <Waypoints size={35} />
+                </div>
               </div>
-              <h2 className="text-left text-[2.5vw] font-[bold] tracking-tight uppercase">
-                Skills.
-              </h2>
-              <ul className="bold text-left text-[.8vw] text-white leading-5 font-[semibold]">
+
+              <ul className="text-left text-[.8vw] text-white leading-5 font-[semibold]">
                 <li>Front-End Developer</li>
                 <li>UI/UX Designer</li>
                 <li>React Developer</li>
@@ -90,12 +94,14 @@ function About() {
               </ul>
             </div>
             <div className="card w-[24.9vw] max-w-[205px] cursor-pointer pl-5 pt-10 focus:z-[99px] rounded-3xl bg-[#161616] border-[1px] border-[#262626] px-2 relative flex flex-col overflow-hidden">
-              <h1 className="font-[bold] text-[2.3vw] absolute left-2 leading-none">
-                {formatTime(currentTime)}
-              </h1>
-              <h1 className="font-[bold] text-[2.18vw] absolute left-2 top-40 leading-none">
-                {formatDate(currentTime)}
-              </h1>
+              <div className="flex flex-col items-center gap-4 lg:gap-2 2xl:gap-5 pb-2">
+                <h1 className="font-bold text-4xl leading-none">
+                  {formatTime(currentTime)}
+                </h1>
+                <h1 className="font-bold text-3xl leading-none">
+                  {formatDate(currentTime)}
+                </h1>
+              </div>
             </div>
           </div>
           <div className="card flex h-[22.5vh] w-full flex-col justify-center gap-3 py-5 hover:z-50 bg-[#161616] border-[1px] border-[#262626] rounded-3xl px-8">
@@ -175,7 +181,7 @@ function About() {
                 <img
                   src="/Icons/behance.svg"
                   alt="Behance"
-                  className="w-21 h-21 object-contain hover:scale-105 transition-transform duration-200"
+                  className="w-21 object-contain hover:scale-105 transition-transform duration-200 bg-red-400 leading-none h-fit"
                 />
               </a>
 
@@ -188,13 +194,13 @@ function About() {
                 <img
                   src="/Icons/dribble.svg"
                   alt="Dribbble"
-                  className="w-21 h-21 object-contain hover:scale-105 transition-transform duration-200"
+                  className="w-21 object-contain hover:scale-105 transition-transform duration-200"
                 />
               </a>
             </div>
 
             {/* Bottom row */}
-            <div className="flex items-center justify-start gap-x-2 mt-1">
+            <div className="flex items-center justify-start gap-x-2 ">
               {/* 3 Logos - positioned to align with top icons */}
               <a
                 href="https://www.instagram.com/mustafaaa.ali/"
@@ -205,7 +211,7 @@ function About() {
                 <img
                   src="/Icons/nsta.svg"
                   alt="Instagram"
-                  className="w-20 h-20 object- hover:scale-105 transition-transform duration-200"
+                  className="w-20 object- hover:scale-105 transition-transform duration-200"
                 />
               </a>
 
@@ -218,7 +224,7 @@ function About() {
                 <img
                   src="/Icons/linkdin.svg"
                   alt="LinkedIn"
-                  className="w-20 h-20 object-contain hover:scale-105 transition-transform duration-200"
+                  className="w-20 object-contain hover:scale-105 transition-transform duration-200"
                 />
               </a>
 
@@ -231,14 +237,14 @@ function About() {
                 <img
                   src="/Icons/github.svg"
                   alt="GitHub"
-                  className="w-20 h-20 object-contain hover:scale-105 transition-transform duration-200"
+                  className="w-20 object-contain hover:scale-105 transition-transform duration-200"
                 />
               </a>
             </div>
           </div>
 
           <div className="card h-[41.5vh] w-full cursor-pointer p-3 focus:z-[99px] bg-[#161616] border-[1px] border-[#262626] rounded-3xl">
-            <h1 className="text-[2.5vw] font-extrabold font-[bold] leading-none uppercase">
+            <h1 className="text-[1.7vw] font-extrabold font-[bold] leading-none uppercase">
               Recent <br /> Works.
             </h1>
             <div className="mt-8 flex flex-col font-[bold] gap-4">

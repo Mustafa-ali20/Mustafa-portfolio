@@ -4,10 +4,9 @@ import Projects from "./Components/content/Projects";
 import About from "./Components/content/About";
 import Navbar from "./Components/Navbar"; // Import the navbar
 import Contact from "./Components/content/Contact";
-import Lenis from 'lenis'
+import Lenis from "lenis";
 
 function App() {
-  
   // Create refs for each section
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
@@ -17,12 +16,12 @@ function App() {
   // Initialize Lenis smooth scroll with custom options
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 0.9,        // How long the scroll animation takes (higher = slower)
+      duration: 0.9, // How long the scroll animation takes (higher = slower)
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing function
-      mouseMultiplier: 2,   // Mouse wheel scroll speed (higher = faster)
-      touchMultiplier: 2,   // Touch scroll speed (higher = faster)
-      wheelMultiplier: 1,   // Wheel scroll speed (higher = faster)
-      smoothTouch: false,   // Enable smooth scroll on touch devices
+      mouseMultiplier: 2, // Mouse wheel scroll speed (higher = faster)
+      touchMultiplier: 2, // Touch scroll speed (higher = faster)
+      wheelMultiplier: 1, // Wheel scroll speed (higher = faster)
+      smoothTouch: false, // Enable smooth scroll on touch devices
     });
 
     function raf(time) {
@@ -50,7 +49,6 @@ function App() {
       });
     }
   };
-  
 
   return (
     <div className="bg-[#121315] w-full">
