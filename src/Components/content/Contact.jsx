@@ -302,9 +302,9 @@ function Contact() {
             <br />
             into damn, that's{" "}
             <i>
-              <span className="animate-text">brilliant</span>
+              <span className="animate-text uppercase">brilliant</span>
             </i>
-            <span className="exclamation-mark">!</span>
+            <span className="exclamation-mark"><i>!</i></span>
           </span>
         </p>
 

@@ -16,7 +16,7 @@ const Navbar = ({ scrollToSection }) => {
   ];
 
   return (
-    <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+    <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 select-none">
       <ul
         onMouseLeave={() => {
           setPosition((pv) => ({
@@ -27,7 +27,7 @@ const Navbar = ({ scrollToSection }) => {
         className="relative bg-white/5 border border-white/10 rounded-full px-3 py-2 sm:px-4 sm:py-2 lg:px-6 lg:py-1 backdrop-blur-xl flex items-center space-x-2 sm:space-x-3 lg:space-x-4 shadow-lg shadow-black/20"
       >
         {navItems.map((item) => (
-          <Tab 
+          <Tab
             key={item.id}
             setPosition={setPosition}
             onClick={() => scrollToSection(item.id)}
@@ -43,7 +43,7 @@ const Navbar = ({ scrollToSection }) => {
 
 const Tab = ({ children, setPosition, onClick }) => {
   const ref = useRef(null);
-  
+
   return (
     <li
       ref={ref}
@@ -57,7 +57,7 @@ const Tab = ({ children, setPosition, onClick }) => {
         });
       }}
       onClick={onClick}
-      className="relative z-10 block cursor-pointer px-2 py-1 sm:px-3 sm:py-1.5 lg:px-4 lg:py-2 text-xs sm:text-sm lg:text-md font-[bold] text-white mix-blend-difference transition-colors duration-200"
+      className="relative z-10 block cursor-pointer px-2 py-1 sm:px-3 sm:py-1.5 lg:px-4 lg:py-2 text-xs sm:text-sm lg:text-md font-[bold] text-white mix-blend-difference transition-colors duration-200 select-none"
     >
       {children}
     </li>

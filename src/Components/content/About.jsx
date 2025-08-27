@@ -337,7 +337,7 @@ function About() {
 
         {/* 2. AKA */}
         <div className="card flex h-[20.5vh] w-full cursor-pointer flex-col justify-between py-6 px-6 focus:z-[99px] bg-[#161616] border-[1px] border-[#262626] rounded-3xl">
-          <h1 className="text-left font-extrabold text-6xl sm:text-7xl font-[bold] leading-none">
+          <h1 className="text-left font-extrabold text-5xl sm:text-7xl font-[bold] leading-none">
             AKA.
           </h1>
           <p className="skills font-[light] text-sm sm:text-base text-zinc-300">
@@ -355,7 +355,7 @@ function About() {
               Developer
             </span>
           </h1>
-          <p className="text-sm sm:text-base font-[light] text-zinc-300">
+          <p className="text-xs sm:text-base font-[light] text-zinc-300">
             My journey in the world of coding began a year ago with a spark of
             curiosity for how things work on the web. From those first steps of
             trial and error to building full projects today, I have shaped my
@@ -369,7 +369,7 @@ function About() {
         {/* 4. Skills + Date/Time */}
         <div className="flex flex-col sm:flex-row h-auto sm:h-[35.9vh] w-full gap-4">
           <div className="card relative flex flex-1 cursor-pointer flex-col justify-center gap-6 focus:z-[99px] bg-[#4D389B] border-[7px] border-[#644DBA] px-6 py-8 rounded-3xl">
-            <div className=" flex gap-50 items-center">
+            <div className=" flex gap-40 items-center">
               <h2 className="text-left text-4xl sm:text-4xl font-[bold] tracking-tight uppercase">
                 Skills.
               </h2>
