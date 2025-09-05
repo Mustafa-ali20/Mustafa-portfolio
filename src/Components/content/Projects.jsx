@@ -16,6 +16,16 @@ function Projects() {
     },
     {
       id: 2,
+      title: "K72 Agency",
+      description: "K72 Agency delivers bold, creative, and impactful brand strategies.",
+      href: "https://k72-agency.vercel.app/",
+      gradient: "from-sky-200 via-blue-100 to-slate-100",
+      radialGradient:
+        "radial-gradient(120% 80% at 50% 0%, rgba(186,230,253,0.35) 0%, rgba(219,234,254,0.12) 35%, rgba(241,245,249,0) 70%)",
+      image: "/Images/K72.png",
+    },
+    {
+      id: 3,
       title: "ExoApe Clone",
       description: "Modern creative agency website with stunning animations.",
       href: "https://exo-ape-ten.vercel.app/",
@@ -25,7 +35,7 @@ function Projects() {
       image: "/Images/Exo-Ape.png",
     },
     {
-      id: 3,
+      id: 4,
       title: "Refokus Clone",
       description:
         "Awwward-winning design agency portfolio with interactive elements.",
@@ -36,7 +46,7 @@ function Projects() {
       image: "/Images/Refokus.png",
     },
     {
-      id: 4,
+      id: 5,
       title: "Task Assigner",
       description:
         "Efficient task assignment and managnment platform. Admin and employee side.",
