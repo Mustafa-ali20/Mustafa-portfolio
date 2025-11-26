@@ -95,10 +95,10 @@ function About() {
             </div>
             <div className="card w-[24.9vw] max-w-[205px] cursor-pointer pl-5 pt-10 focus:z-[99px] rounded-3xl bg-[#161616] border-[1px] border-[#262626] px-2 relative flex flex-col overflow-hidden">
               <div className="flex flex-col items-center gap-4 lg:gap-2 2xl:gap-5 pb-2">
-                <h1 className="font-bold text-4xl leading-none">
+                <h1 className="font-[bold] text-4xl leading-none">
                   {formatTime(currentTime)}
                 </h1>
-                <h1 className="font-bold text-3xl leading-none">
+                <h1 className="font-[bold] text-3xl leading-none">
                   {formatDate(currentTime)}
                 </h1>
               </div>
@@ -250,16 +250,16 @@ function About() {
             <div className="mt-8 flex flex-col font-[bold] gap-4">
               <div className="group">
                 <div className="flex items-center justify-between gap-2">
-                  <p className="text-[1vw]">Refokus Clone</p>
-                  <p>Apr-2025</p>
+                  <p className="text-[1vw]">Taher Films</p>
+                  <p>Oct-2025</p>
                 </div>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://mustafa-ali20.github.io/Refokus/"
+                  href="https://www.taherfilms.site/"
                   className="font-[light] flex gap-x-2 items-center text-[.75vw] text-[#D9D9D9]"
                 >
-                  mustafa-github
+                  Taherfilms.site
                   <ArrowUpRight
                     size={15}
                     className="origin-bottom group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
@@ -268,13 +268,13 @@ function About() {
               </div>
               <div className="group">
                 <div className="flex items-center justify-between gap-2">
-                  <p className="text-[1vw]">ExoApe Clone</p>
-                  <p>June-2025</p>
+                  <p className="text-[1vw]">K72 Clone</p>
+                  <p>Aug-2025</p>
                 </div>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://exo-ape-ten.vercel.app/"
+                  href="https://k72-agency.vercel.app/"
                   className="font-[light] flex gap-x-2 items-center text-[.75vw] text-[#D9D9D9]"
                 >
                   mustafa-vercel{" "}
@@ -286,8 +286,8 @@ function About() {
               </div>
               <div className="group">
                 <div className="flex items-center justify-between gap-2">
-                  <p className="text-[1vw]">Movie site</p>
-                  <p>Aug-2025</p>
+                  <p className="text-[1vw]">Movie Site</p>
+                  <p>Jul-2025</p>
                 </div>
                 <a
                   target="_blank"
