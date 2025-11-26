@@ -4,8 +4,18 @@ import MarqueeDemo from "../animation/Marquee";
 
 function Projects() {
   const projectsData = [
-    {
+       {
       id: 1,
+      title: "Taher Films",
+      description: "A clean, modern portfolio showcasing Taher Films’ creative work with smooth animations, fast performance, and a professional, cinematic presentation.",
+      href: "https://www.taherfilms.site/",
+      gradient: "from-slate-800 via-purple-700 to-blue-800",
+      radialGradient:
+        "radial-gradient(120% 180% at 50% 0%, rgba(153, 27, 27, 0.35) 0%, rgba(220, 38, 38, 0.12) 35%, rgba(239, 68, 68, 0) 70%)",
+      image: "/Images/Taher-Films.png",
+    },
+    {
+      id: 2,
       title: "Movie Site",
       description: "Discover and explore movies with ratings and reviews.",
       href: "https://scsdb-movieweb.vercel.app/",
@@ -15,7 +25,7 @@ function Projects() {
       image: "/Images/movie-app.png",
     },
     {
-      id: 2,
+      id: 3,
       title: "K72 Agency",
       description: "K72 Agency delivers bold, creative, and impactful brand strategies.",
       href: "https://k72-agency.vercel.app/",
@@ -25,7 +35,7 @@ function Projects() {
       image: "/Images/K72.png",
     },
     {
-      id: 3,
+      id: 4,
       title: "ExoApe Clone",
       description: "Modern creative agency website with stunning animations.",
       href: "https://exo-ape-ten.vercel.app/",
@@ -35,7 +45,7 @@ function Projects() {
       image: "/Images/Exo-Ape.png",
     },
     {
-      id: 4,
+      id: 5,
       title: "Refokus Clone",
       description:
         "Awwward-winning design agency portfolio with interactive elements.",
@@ -46,7 +56,7 @@ function Projects() {
       image: "/Images/Refokus.png",
     },
     {
-      id: 5,
+      id: 6,
       title: "Task Assigner",
       description:
         "Efficient task assignment and managnment platform. Admin and employee side.",
