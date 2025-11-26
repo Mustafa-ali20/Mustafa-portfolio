@@ -1,0 +1,1008 @@
+// ============================================
+// SCSS VARIABLES & MIXINS
+// ============================================
+
+$bg-primary: #121315;
+$bg-card: #161616;
+$border-color: #262626;
+$skills-bg: #4D389B;
+$skills-border: #644DBA;
+$text-primary: #ffffff;
+$text-secondary: #D9D9D9;
+$text-light: #a1a1aa;
+
+// Reddish gradient (converted from bluish-purplish)
+$gradient-red: radial-gradient(
+  120% 180% at 50% 0%,
+  rgba(153, 27, 27, 0.35) 0%,
+  rgba(220, 38, 38, 0.12) 35%,
+  rgba(239, 68, 68, 0) 70%
+);
+
+// Max width to prevent stretching on large screens
+$max-container-width: 1400px;
+$desktop-width: 70.3vw;
+$desktop-max-width: 1400px;
+
+// Breakpoints
+$laptop-min: 1024px;
+$laptop-max: 1439px;
+$monitor-min: 1440px;
+$monitor-max: 2559px;
+$large-screen-min: 2560px;
+
+@mixin card-base {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+// ============================================
+// MAIN CONTAINER
+// ============================================
+
+.about-container {
+  background: $bg-primary;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  
+  @media (min-width: 640px) {
+    padding: 2.5rem 2rem;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 8.75rem 0;
+  }
+}
+
+// ============================================
+// DESKTOP LAYOUT (1024px and above)
+// ============================================
+
+.desktop-layout {
+  display: none;
+  
+  @media (min-width: $laptop-min) {
+    display: flex;
+    height: 92vh;
+    width: $desktop-width;
+    max-width: $desktop-max-width;
+    margin: 0 auto;
+    padding: 0.5rem;
+    gap: 1rem; // Increased from 0.5rem
+    color: $text-primary;
+  }
+  
+  // Lock dimensions for monitors (1440px - 2559px)
+  @media (min-width: $monitor-min) and (max-width: $monitor-max) {
+    width: 1400px;
+    max-width: 1400px;
+  }
+  
+  // Lock dimensions for large screens (2560px+)
+  @media (min-width: $large-screen-min) {
+    width: 1400px;
+    max-width: 1400px;
+    height: 92vh;
+  }
+  
+  // ============================================
+  // COLUMN 1 - Photo & AKA
+  // ============================================
+  
+  .column-one {
+    display: flex;
+    height: 89.5vh;
+    width: 50vw;
+    max-width: 418px;
+    min-width: 320px;
+    flex-direction: column;
+    gap: 0.7rem; // Increased from 1vh
+    
+    @media (min-width: $monitor-min) {
+      width: 418px;
+    }
+    
+    .photo-card {
+      @include card-base;
+      height: 73vh;
+      width: 100%;
+      overflow: hidden;
+      
+      @media (min-width: $monitor-min) {
+        height: 550px;
+      }
+      
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    
+    .aka-card {
+      @include card-base;
+      height: 20.5vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2.4vh 3.2vw;
+      
+      @media (min-width: $monitor-min) {
+        height: 167px;
+        padding: 24px 32px;
+      }
+      
+      h1 {
+        text-align: left;
+        font-weight: 800;
+        font-size: 5vh;
+        line-height: 1;
+        
+        @media (min-width: $monitor-min) {
+          font-size: 48px;
+        }
+      }
+      
+      p {
+        font-weight: 300;
+        font-size: 1.45vh;
+        color: $text-light;
+        
+        @media (min-width: $monitor-min) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  
+  // ============================================
+  // COLUMN 2 - Main Content
+  // ============================================
+  
+  .column-two {
+    display: flex;
+    height: 89.5vh;
+    width: 74vw;
+    flex-direction: column;
+    gap: 0.7rem; // Increased from 0.5rem
+    
+    @media (min-width: $monitor-min) {
+      width: 630px;
+      height: 720px;
+    }
+    
+    .intro-card {
+      @include card-base;
+      height: 35.2vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2.5rem 2rem;
+      
+      @media (min-width: $monitor-min) {
+        height: 280px;
+      }
+      
+      h1 {
+        font-size: 2.5vw;
+        font-weight: 400;
+        line-height: 1;
+        margin-bottom: 1rem;
+        
+        @media (min-width: $monitor-min) {
+          font-size: 32px;
+        }
+        
+        span {
+          font-size: 3.65vw;
+          font-weight: 600;
+          letter-spacing: -0.025em;
+          
+          @media (min-width: $monitor-min) {
+            font-size: 48px;
+          }
+        }
+      }
+      
+      p {
+        font-size: 1.56vh;
+        font-weight: 300;
+        color: $text-light;
+        
+        @media (min-width: $monitor-min) {
+          font-size: 14px;
+        }
+      }
+    }
+    
+    .row-wrapper {
+      display: flex;
+      height: 35.9vh;
+      width: 100%;
+      gap: 1rem; // Increased from 1vh
+      
+      @media (min-width: $monitor-min) {
+        height: 280px;
+      }
+      
+      .skills-card {
+        position: relative;
+        display: flex;
+        width: 50.8vw;
+        max-width: 418px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        background: $skills-bg;
+        border: 7px solid $skills-border;
+        padding: 2rem;
+        border-radius: 24px;
+        cursor: pointer;
+        
+        @media (min-width: $monitor-min) {
+          width: 418px;
+        }
+        
+        .skills-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          
+          h2 {
+            text-align: left;
+            font-size: 2.5vw;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+            
+            @media (min-width: $monitor-min) {
+              font-size: 32px;
+            }
+          }
+        }
+        
+        ul {
+          text-align: left;
+          font-size: 0.8vw;
+          color: $text-primary;
+          line-height: 1.25rem;
+          font-weight: 600;
+          list-style: none;
+          padding: 0;
+          
+          @media (min-width: $monitor-min) {
+            font-size: 14px;
+          }
+        }
+      }
+      
+      .time-card {
+        @include card-base;
+        width: 24.9vw;
+        max-width: 205px;
+        padding: 2.5rem 0 0 1.25rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+        overflow: hidden;
+        
+        @media (min-width: $monitor-min) {
+          width: 205px;
+        }
+        
+        .time {
+          font-weight: 700;
+          font-size: 2.25rem;
+          line-height: 1;
+        }
+        
+        .date {
+          font-weight: 700;
+          font-size: 1.875rem;
+          line-height: 1;
+        }
+      }
+    }
+    
+    .stack-card {
+      @include card-base;
+      height: 22.5vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1.25rem 2rem;
+      
+      @media (min-width: $monitor-min) {
+        height: 180px;
+      }
+      
+      h1 {
+        text-align: left;
+        font-size: 2.5vw;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        
+        @media (min-width: $monitor-min) {
+          font-size: 32px;
+        }
+      }
+      
+      .stack-icons {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+        height: 65px;
+        width: 95%;
+        gap: 0.5rem;
+        padding: 0.75rem;
+        border: 1px solid $border-color;
+        border-radius: 24px;
+        
+        .icon-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 3rem;
+          height: 3rem;
+          transform-origin: bottom;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            transform: scale(1.35);
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.7));
+          }
+          
+          &.small {
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-right: 0.25rem;
+            
+            img {
+              width: 2.5rem;
+              height: 2.5rem;
+              border-radius: 12px;
+            }
+          }
+          
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+  
+  // ============================================
+  // COLUMN 3 - Links, Works, Hobbies
+  // ============================================
+  
+  .column-three {
+    display: flex;
+    height: 89.5vh;
+    width: 31vw;
+    flex-direction: column;
+    gap: 0.7rem; // Increased from 0.5rem
+    border-radius: 24px;
+    
+    @media (min-width: $monitor-min) {
+      width: 330px;
+      height: 720px;
+    }
+    
+    .links-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 165px;
+      width: 100%;
+      padding-left: 0.5rem;
+      border-radius: 24px;
+      
+      .links-top,
+      .links-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+        
+        .links-text {
+          font-size: 2.5vw;
+          font-weight: 800;
+          color: $text-secondary;
+          line-height: 1;
+          
+          @media (min-width: $monitor-min) {
+            font-size: 44px;
+          }
+        }
+        
+        a {
+          cursor: pointer;
+          transition: transform 0.2s ease;
+          
+          &:hover {
+            transform: scale(1.05);
+          }
+          
+          img {
+            width: 79px;
+            object-fit: contain;
+            margin-bottom: 0.7rem;
+          }
+        }
+      }
+      
+      .links-bottom a img {
+        width: 75px;
+      }
+    }
+    
+    .works-card {
+      @include card-base;
+      height: 41.5vh;
+      width: 100%;
+      padding: 0.75rem;
+      
+      @media (min-width: $monitor-min) {
+        height: 320px;
+      }
+      
+      h1 {
+        font-size: 1.7vw;
+        font-weight: 800;
+        line-height: 1;
+        text-transform: uppercase;
+        
+        @media (min-width: $monitor-min) {
+          font-size: 24px;
+        }
+      }
+      
+      .works-list {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        font-weight: 700;
+        gap: 1rem;
+        
+        .work-item {
+          .work-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            
+            .work-title {
+              font-size: 1vw;
+              
+              @media (min-width: $monitor-min) {
+                font-size: 14px;
+              }
+            }
+          }
+          
+          a {
+            font-weight: 300;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            font-size: 0.75vw;
+            color: $text-secondary;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            
+            @media (min-width: $monitor-min) {
+              font-size: 12px;
+            }
+            
+            svg {
+              transform-origin: bottom;
+              transition: transform 0.3s ease;
+            }
+            
+            &:hover svg {
+              transform: translate(2px, -2px);
+            }
+          }
+        }
+      }
+    }
+    
+    .hobbies-card {
+      @include card-base;
+      position: relative;
+      height: 27.9vh;
+      width: 100%;
+      padding-left: 1.25rem;
+      padding-top: 0.7rem;
+      padding-bottom: 0.3rem;
+      
+      @media (min-width: $monitor-min) {
+        height: 220px;
+      }
+      
+      h2 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        margin-bottom: 0.9rem;
+        color: $text-primary;
+      }
+      
+      ul {
+        list-style: disc;
+        list-style-position: inside;
+        font-weight: 400;
+        color: #d4d4d8;
+        
+        li {
+          margin-bottom: 0.2rem;
+        }
+      }
+    }
+    
+    .schedule-card {
+      @include card-base;
+      height: 5.6vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.125rem;
+      padding: 0.5rem;
+      transition: all 0.2s ease-out;
+      
+      @media (min-width: $monitor-min) {
+        height: 60px;
+      }
+      
+      &:hover {
+        transform: scale(0.9);
+      }
+      
+      a {
+        color: $text-primary;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// ============================================
+// MOBILE & TABLET LAYOUT (below 1024px)
+// ============================================
+
+.mobile-layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 672px;
+  gap: 1rem;
+  color: $text-primary;
+  
+  @media (min-width: 1024px) {
+    display: none;
+  }
+  
+  .photo-card {
+    @include card-base;
+    height: 68vh;
+    width: 100%;
+    overflow: hidden;
+    
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  
+  .aka-card {
+    @include card-base;
+    height: 20.5vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    
+    h1 {
+      text-align: left;
+      font-weight: 800;
+      font-size: 3rem;
+      line-height: 1;
+    }
+    
+    p {
+      font-weight: 300;
+      font-size: 0.875rem;
+      color: $text-light;
+    }
+    
+    @media (min-width: 640px) {
+      h1 {
+        font-size: 4.5rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+  
+  .intro-card {
+    @include card-base;
+    height: 35.2vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+    
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 1rem;
+      
+      span {
+        font-size: 3rem;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+      }
+    }
+    
+    p {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: $text-light;
+    }
+    
+    @media (min-width: 640px) {
+      h1 {
+        font-size: 3rem;
+        
+        span {
+          font-size: 3.75rem;
+        }
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+  
+  .row-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    gap: 1rem;
+    
+    @media (min-width: 640px) {
+      flex-direction: row;
+      height: 35.9vh;
+    }
+    
+    .skills-card {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+      background: $skills-bg;
+      border: 7px solid $skills-border;
+      padding: 2rem 1.5rem;
+      border-radius: 24px;
+      cursor: pointer;
+      
+      .skills-header {
+        display: flex;
+        gap: 10rem;
+        align-items: center;
+        
+        h2 {
+          text-align: left;
+          font-size: 2.25rem;
+          font-weight: 700;
+          letter-spacing: -0.025em;
+          text-transform: uppercase;
+        }
+      }
+      
+      ul {
+        text-align: left;
+        font-size: 0.875rem;
+        color: $text-primary;
+        line-height: 1.25rem;
+        font-weight: 600;
+        list-style: none;
+        padding: 0;
+      }
+      
+      @media (min-width: 640px) {
+        ul {
+          font-size: 1rem;
+        }
+      }
+    }
+    
+    .time-card {
+      @include card-base;
+      width: 100%;
+      height: 8rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      
+      .time,
+      .date {
+        font-weight: 700;
+        text-align: center;
+        line-height: 1;
+      }
+      
+      .time {
+        font-size: 1.875rem;
+      }
+      
+      .date {
+        font-size: 2.25rem;
+        margin-top: 1rem;
+      }
+      
+      @media (min-width: 640px) {
+        width: 12rem;
+        height: 100%;
+        
+        .time,
+        .date {
+          text-align: left;
+        }
+        
+        .time {
+          font-size: 1.875rem;
+        }
+        
+        .date {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+  
+  .stack-card {
+    @include card-base;
+    height: auto;
+    min-height: 22.5vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    
+    h1 {
+      text-align: left;
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+    
+    .stack-icons {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 80px;
+      width: 100%;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid $border-color;
+      border-radius: 24px;
+      
+      .icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        transform-origin: bottom;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          transform: scale(1.35);
+          filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.7));
+        }
+        
+        &.small img {
+          width: 100%;
+          height: 100%;
+          border-radius: 12px;
+        }
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      
+      @media (min-width: 640px) {
+        .icon-wrapper {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+      }
+    }
+    
+    @media (min-width: 640px) {
+      h1 {
+        font-size: 2.25rem;
+      }
+    }
+  }
+  
+  .works-card {
+    @include card-base;
+    height: 41.5vh;
+    width: 100%;
+    padding: 1.25rem;
+    
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    
+    .works-list {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      font-weight: 700;
+      gap: 1rem;
+      
+      .work-item {
+        .work-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          line-height: 1;
+          gap: 0.5rem;
+          
+          .work-title {
+            font-size: 1rem;
+          }
+          
+          .work-date {
+            font-size: 0.875rem;
+          }
+        }
+        
+        a {
+          font-weight: 300;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 0.875rem;
+          color: $text-secondary;
+          text-decoration: none;
+        }
+      }
+      
+      @media (min-width: 640px) {
+        .work-item {
+          .work-header {
+            .work-title {
+              font-size: 1.125rem;
+            }
+            
+            .work-date {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+    
+    @media (min-width: 640px) {
+      h1 {
+        font-size: 2.25rem;
+      }
+    }
+  }
+  
+  .hobbies-card {
+    @include card-base;
+    position: relative;
+    height: 27.9vh;
+    width: 100%;
+    padding: 1.5rem;
+    
+    h2 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: $text-primary;
+    }
+    
+    ul {
+      list-style: disc;
+      list-style-position: inside;
+      font-weight: 400;
+      color: #d4d4d8;
+      font-size: 1rem;
+      
+      li {
+        margin-bottom: 0.25rem;
+      }
+    }
+    
+    @media (min-width: 640px) {
+      h2 {
+        font-size: 2.25rem;
+      }
+      
+      ul {
+        font-size: 1.125rem;
+      }
+    }
+  }
+  
+  .schedule-card {
+    @include card-base;
+    height: 5.6vh;
+    min-height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 1rem;
+    transition: all 0.2s ease-out;
+    
+    &:hover {
+      transform: scale(0.9);
+    }
+    
+    a {
+      color: $text-primary;
+      text-decoration: none;
+    }
+    
+    @media (min-width: 640px) {
+      font-size: 1.125rem;
+    }
+  }
+}
