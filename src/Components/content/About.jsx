@@ -547,28 +547,28 @@ function About() {
           <div className="mt-6 flex flex-col font-[bold] gap-4">
             <div>
               <div className="flex items-center justify-between leading-none gap-2">
-                <p className="text-base sm:text-lg">Refokus Clone</p>
-                <p className="text-sm sm:text-base">Apr-2025</p>
+                <p className="text-base sm:text-lg">Taher FIlms</p>
+                <p className="text-sm sm:text-base">Oct-2025</p>
               </div>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://mustafa-ali20.github.io/Refokus/"
+                href="https://www.taherfilms.site/"
                 className="font-[light] flex items-center gap-2 text-sm text-[#D9D9D9]"
               >
-                mustafa-github
+                Taherfilms.site
                 <ArrowUpRight size={15} className="" />
               </a>
             </div>
             <div>
               <div className="flex items-center justify-between leading-none  gap-2">
-                <p className="text-base sm:text-lg">ExoApe Clone</p>
-                <p className="text-sm sm:text-base">June-2025</p>
+                <p className="text-base sm:text-lg">K72 Clone</p>
+                <p className="text-sm sm:text-base">Aug-2025</p>
               </div>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://exo-ape-ten.vercel.app/"
+                href="https://k72-agency.vercel.app/"
                 className="font-[light] flex items-center gap-2 text-sm text-[#D9D9D9]"
               >
                 mustafa-vercel <ArrowUpRight size={15} />
@@ -577,7 +577,7 @@ function About() {
             <div>
               <div className="flex items-center justify-between gap-2">
                 <p className="text-base sm:text-lg">Movie site</p>
-                <p className="text-sm sm:text-base">Aug-2025</p>
+                <p className="text-sm sm:text-base">Jul-2025</p>
               </div>
               <a
                 target="_blank"
