@@ -1,27 +1,38 @@
-import React, { useRef, useEffect } from "react";
-import Home from "./Components/content/Home";
-import Projects from "./Components/content/Projects";
-import About from "./Components/content/About";
-import Navbar from "./Components/Navbar"; // Import the navbar
-import Contact from "./Components/content/Contact";
+import React, { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Home from "./Components/pages/Home";
+import Projects from "./Components/pages/Projects";
+import About from "./Components/pages/About";
+import Navbar from "./Components/Navbar";
+import Contact from "./Components/pages/Contact";
 import Lenis from "lenis";
+import ScrollToTop from "./Components/ScrollToTop";
+import { AnimatePresence } from "framer-motion";
+
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
 
 function App() {
-  // Create refs for each section
-  const homeRef = useRef(null);
-  const aboutRef = useRef(null);
-  const projectsRef = useRef(null);
-  const contactRef = useRef(null);
-
-  // Initialize Lenis smooth scroll with custom options
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 0.9, // How long the scroll animation takes (higher = slower)
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing function
-      mouseMultiplier: 2, // Mouse wheel scroll speed (higher = faster)
-      touchMultiplier: 2, // Touch scroll speed (higher = faster)
-      wheelMultiplier: 1, // Wheel scroll speed (higher = faster)
-      smoothTouch: false, // Enable smooth scroll on touch devices
+      duration: 0.9,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      mouseMultiplier: 2,
+      touchMultiplier: 2,
+      wheelMultiplier: 1,
+      smoothTouch: false,
     });
 
     function raf(time) {
@@ -30,46 +41,17 @@ function App() {
     }
 
     requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
   }, []);
 
-  // Function to scroll to specific section
-  const scrollToSection = (sectionId) => {
-    const refs = {
-      home: homeRef,
-      about: aboutRef,
-      projects: projectsRef,
-      contact: contactRef,
-    };
-
-    const targetRef = refs[sectionId];
-    if (targetRef && targetRef.current) {
-      targetRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
-
   return (
-    <div className="bg-[#121315] w-full">
-      {/* Navbar with scroll function */}
-      <Navbar scrollToSection={scrollToSection} />
-
-      {/* Sections with refs */}
-      <div ref={homeRef} id="home">
-        <Home />
-      </div>
-      <div ref={projectsRef} id="projects">
-        <Projects />
-      </div>
-
-      <div ref={aboutRef} id="about">
-        <About />
-      </div>
-
-      <div ref={contactRef} id="contact">
-        <Contact />
-      </div>
+    <div className="bg-[#121315] w-full min-h-screen">
+      <ScrollToTop />
+      <Navbar />
+      <AnimatedRoutes />
     </div>
   );
 }

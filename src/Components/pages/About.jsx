@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Waypoints, Calendar, ArrowUpRight } from "lucide-react";
 import "./About.css";
+import Transition from "../animation/Transition";
 
 function About() {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -32,7 +33,7 @@ function About() {
   };
 
   return (
-    <div className="about-container">
+    <div className="about-container ">
       {/* Desktop Layout */}
       <div className="desktop-layout">
         {/* Column 1 */}
@@ -389,4 +390,4 @@ function About() {
   );
 }
 
-export default About;
+export default Transition(About);

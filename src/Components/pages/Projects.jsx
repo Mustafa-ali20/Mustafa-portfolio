@@ -1,13 +1,15 @@
 import React from "react";
 import { MoveRight } from "lucide-react";
 import MarqueeDemo from "../animation/Marquee";
+import Transition from "../animation/Transition";
 
 function Projects() {
   const projectsData = [
-       {
+    {
       id: 1,
       title: "Taher Films",
-      description: "A clean, modern portfolio showcasing Taher Films’ creative work with smooth animations, fast performance, and a professional, cinematic presentation.",
+      description:
+        "A clean, modern portfolio showcasing Taher Films’ creative work with smooth animations, fast performance, and a professional, cinematic presentation.",
       href: "https://www.taherfilms.site/",
       gradient: "from-slate-800 via-purple-700 to-blue-800",
       radialGradient:
@@ -27,7 +29,8 @@ function Projects() {
     {
       id: 3,
       title: "K72 Agency",
-      description: "K72 Agency delivers bold, creative, and impactful brand strategies.",
+      description:
+        "K72 Agency delivers bold, creative, and impactful brand strategies.",
       href: "https://k72-agency.vercel.app/",
       gradient: "from-sky-200 via-blue-100 to-slate-100",
       radialGradient:
@@ -109,7 +112,7 @@ function Projects() {
                         </div>
 
                         {/* Arrow Icon - Facing Right */}
-                        <div className="ml-6 flex-shrink-0">
+                        <div className="ml-6 shrink-0">
                           <MoveRight
                             size={28}
                             className="text-white transition-transform duration-700 ease-out translate-x-0 group-hover:translate-x-2 md:w-8 md:h-8 lg:w-10 lg:h-10"
@@ -148,7 +151,7 @@ function Projects() {
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-[bold] text-zinc-400 mb-1.5">
               Under Development
             </h3>
-            <div className="w-30 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
+            <div className="w-30 h-1 bg-linear-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
           </div>
         </div>
       </div>
@@ -159,4 +162,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default Transition(Projects);

@@ -1,0 +1,35 @@
+import React from "react";
+import DecryptedText from "../../animation/DecryptedText";
+
+const Trail = () => {
+  return (
+    <div>
+      {/* Example 1: Defaults (hover to decrypt) */}
+      <DecryptedText text="Hover me!" />
+
+      {/* Example 2: Customized speed and characters */}
+      <DecryptedText
+        text="Customize me"
+        speed={70}
+        maxIterations={14}
+        characters="ABCD1234!?"
+        className="revealed"
+        parentClassName="all-letters"
+        encryptedClassName="encrypted"
+      />
+
+      {/* Example 3: Animate on view (runs once) */}
+      <div style={{ marginTop: "4rem" }}>
+        <DecryptedText
+          text="This text animates when in view"
+          animateOn="view"
+          revealDirection="start"
+          sequential
+          useOriginalCharsOnly={false}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default Trail;

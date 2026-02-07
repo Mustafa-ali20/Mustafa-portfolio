@@ -1,7 +1,10 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
-const Navbar = ({ scrollToSection }) => {
+const Navbar = () => {
+  const navigate = useNavigate();
+
   const [position, setPosition] = useState({
     left: 0,
     width: 0,
@@ -9,11 +12,15 @@ const Navbar = ({ scrollToSection }) => {
   });
 
   const navItems = [
-    { id: "home", label: "Home" },
-    { id: "projects", label: "Projects" },
-    { id: "about", label: "About" },
-    { id: "contact", label: "Contact" },
+    { id: "home", label: "Home", path: "/" },
+    { id: "projects", label: "Projects", path: "/projects" },
+    { id: "about", label: "About", path: "/about" },
+    { id: "contact", label: "Contact", path: "/contact" },
   ];
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
 
   return (
     <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 select-none">
@@ -30,7 +37,7 @@ const Navbar = ({ scrollToSection }) => {
           <Tab
             key={item.id}
             setPosition={setPosition}
-            onClick={() => scrollToSection(item.id)}
+            onClick={() => handleNavigation(item.path)}
           >
             {item.label}
           </Tab>
