@@ -31,5 +31,73 @@ const Trail = () => {
     </div>
   );
 };
+const scheduleButtonRef = useRef(null);
+  const whiteOverlayRef = useRef(null);
 
-export default Trail;
+  //  if (scheduleButtonRef.current && whiteOverlayRef.current) {
+  //     const button = scheduleButtonRef.current;
+  //     const overlay = whiteOverlayRef.current;
+  //     const text = button.querySelector(".button-text");
+  //     const icon = button.querySelector(".button-icon");
+
+  //     gsap.set(overlay, {
+  //       y: "100%",
+  //       borderRadius: "70% 70% 0 0",
+  //     });
+
+  //     const handleMouseEnter = () => {
+  //       gsap.to(overlay, {
+  //         y: "0%",
+  //         duration: 0.4,
+  //         ease: "power2.out",
+  //       });
+  //       gsap.to([text, icon], {
+  //         color: "#000000",
+  //         duration: 0.2,
+  //         ease: "power2.out",
+  //       });
+  //     };
+
+  //     const handleMouseLeave = () => {
+  //       gsap.to(overlay, {
+  //         y: "100%",
+  //         duration: 0.4,
+  //         ease: "power2.out",
+  //       });
+  //       gsap.to([text, icon], {
+  //         color: "#ffffff",
+  //         duration: 0.2,
+  //         ease: "power2.out",
+  //       });
+  //     };
+
+  //     button.addEventListener("mouseenter", handleMouseEnter);
+  //     button.addEventListener("mouseleave", handleMouseLeave);
+  //   }
+  // }, []);
+
+
+ <button
+            ref={scheduleButtonRef}
+            data-cal-namespace="breif-meeting"
+            data-cal-link="mustafa-aly/breif-meeting"
+            data-cal-config='{"layout":"month_view"}'
+            className="w-50 h-11 bg-zinc-800 text-white rounded-full font-[light] text-md hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center gap-3 relative overflow-hidden"
+          >
+            <div ref={whiteOverlayRef} className="absolute inset-0 bg-white" />
+            <Calendar
+              size={17}
+              className="button-icon relative z-10 transition-colors duration-400"
+            />
+            <span className="button-text relative z-10 transition-colors duration-400">
+              Schedule a call
+            </span>
+          </button>
+
+
+
+
+
+
+
+

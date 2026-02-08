@@ -89,16 +89,43 @@ const Tools = () => {
     };
   };
 
+  const headingVariants = {
+    hidden: { y: "100%" },
+    visible: {
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.33, 1, 0.68, 1], // Custom easing for smooth deceleration
+      },
+    },
+  };
+
   return (
     <div className="h-screen bg-[#121315] flex flex-col items-center justify-center p-4 md:p-8">
-      <div className="lg:px-25 w-full text-left mb-20 md:mb-20">
-        <h2 className=" text-7xl md:text-[5.5rem] lg:text-[10rem] mb-3 font-[semibold] text-[rgb(90,90,90)] uppercase">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        className="lg:px-25 w-full text-left mb-20 md:mb-20 overflow-hidden"
+      >
+        <motion.h2
+          variants={headingVariants}
+          className=" text-7xl md:text-[5.5rem] lg:text-[10rem] mb-3 font-[semibold] text-[rgb(90,90,90)] uppercase"
+        >
           Tech Stack
-        </h2>
+        </motion.h2>
         <p className="w-full text-white ml-1 md:ml-1.5 text-sm md:text-lg lg:text-xl font-[light] ">
-          A practical stack I work with on real projects.
+          <DecryptedText
+            text=" A practical stack I work with on real projects."
+            animateOn="view"
+            revealDirection="start"
+            sequential
+            useOriginalCharsOnly={false}
+            speed={40}
+            maxIterations={1}
+          />
         </p>
-      </div>
+      </motion.div>
 
       <div className="hidden md:block relative w-full max-w-6xl h-[600px]">
         {tools.map((tool, index) => {

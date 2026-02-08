@@ -5,7 +5,6 @@ import Tools from "../utils/Home/Tools";
 import Transition from "../animation/Transition";
 import ProjectsShowcase from "../utils/Home/ProjectsShowcase";
 import Contact from "./Contact";
-import Trail from "../utils/Home/Trail";
 
 function Home() {
   return (
@@ -15,7 +14,6 @@ function Home() {
       <ProjectsShowcase />
       <Tools />
       <Contact />
-      <Trail />
     </div>
   );
 }

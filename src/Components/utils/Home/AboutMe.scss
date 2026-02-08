@@ -46,21 +46,13 @@ $border-color: rgba(255, 255, 255, 0.1);
   pointer-events: none;
   user-select: none;
   z-index: 5;
+  will-change: transform; // Performance optimization for animation
 }
 
 .bg-text-left {
   left: 5%;
   top: 30%;
   transform: translateY(-60%);
-
-  .bg-text-item {
-    &:nth-child(1) {
-      margin-bottom: -0.1em;
-    }
-    &:nth-child(2) {
-      margin-bottom: -0.1em;
-    }
-  }
 }
 
 .bg-text-right {
@@ -72,6 +64,31 @@ $border-color: rgba(255, 255, 255, 0.1);
     text-align: right;
   }
 }
+
+// ========================================
+// GSAP TEXT REVEAL ANIMATION STYLES
+// ========================================
+
+// Wrapper for each text item - creates the mask/clip effect
+.bg-text-wrapper {
+  overflow: hidden; // Critical: Clips the text when positioned above
+  position: relative;
+  width: 100%;
+
+  // The wrapper height should match the line-height of your text
+  // This ensures proper clipping behavior
+  line-height: 0.85; // Matches parent line-height
+
+  .bg-text-item {
+    position: relative;
+    will-change: transform; // Performance optimization
+    display: block; // Ensures proper height calculation
+  }
+}
+
+// ========================================
+// END ANIMATION STYLES
+// ========================================
 
 // Portrait
 .portrait-container {
@@ -145,8 +162,9 @@ $border-color: rgba(255, 255, 255, 0.1);
   z-index: 10;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: white;
+    border-color: rgba(0, 0, 0, 0.3);
+    color: black;
   }
 }
 
@@ -213,6 +231,11 @@ $border-color: rgba(255, 255, 255, 0.1);
     line-height: 0.8;
   }
 
+  // Update wrapper line-height for mobile
+  .bg-text-wrapper {
+    line-height: 0.8;
+  }
+
   .bg-text-left {
     left: 2%;
     top: 20%;
@@ -264,6 +287,11 @@ $border-color: rgba(255, 255, 255, 0.1);
     line-height: 0.75;
   }
 
+  // Update wrapper line-height for extra small screens
+  .bg-text-wrapper {
+    line-height: 0.75;
+  }
+
   .bg-text-left {
     left: 0%;
     top: 20%;
@@ -297,7 +325,7 @@ $border-color: rgba(255, 255, 255, 0.1);
     padding: 0 1rem;
 
     .description-line {
-      font-size: clamp(0.50rem, 3.5vw, 0.60rem);
+      font-size: clamp(0.5rem, 3.5vw, 0.6rem);
     }
   }
 

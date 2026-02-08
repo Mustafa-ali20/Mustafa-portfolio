@@ -2,18 +2,12 @@ import React, { useEffect, useRef } from "react";
 import { Send, Calendar } from "lucide-react";
 import { getCalApi } from "@calcom/embed-react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-import Transition from "../animation/Transition";
+import PixelBlast from "../animation/PixelBlast";
 
-// Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger);
-
-function Contact() {
+function Footer() {
   const emailAddress = "mustafaramakda61@gmail.com";
 
-  // Refs for animations
-  const subheadingRef = useRef(null);
+  // Refs for button animations
   const gmailButtonRef = useRef(null);
   const gradientCircleRef = useRef(null);
   const scheduleButtonRef = useRef(null);
@@ -28,21 +22,20 @@ function Contact() {
   }, []);
 
   // GSAP Animations
-  useGSAP(() => {
+  useEffect(() => {
     // Gmail Button - Gradient Follower Animation
     if (gmailButtonRef.current && gradientCircleRef.current) {
       const button = gmailButtonRef.current;
       const circle = gradientCircleRef.current;
 
-      // Generate random gradient colors (avoiding yellows/limes)
       const generateGradient = () => {
         const colors = [
-          ["#FF6B6B", "#4ECDC4"], // Red to teal
-          ["#667eea", "#764ba2"], // Blue to purple
-          ["#f093fb", "#f5576c"], // Pink to coral
-          ["#4facfe", "#00f2fe"], // Blue to cyan
-          ["#43e97b", "#38f9d7"], // Green to mint
-          ["#ff9a9e", "#fecfef"], // Coral to light purple
+          ["#FF6B6B", "#4ECDC4"],
+          ["#667eea", "#764ba2"],
+          ["#f093fb", "#f5576c"],
+          ["#4facfe", "#00f2fe"],
+          ["#43e97b", "#38f9d7"],
+          ["#ff9a9e", "#fecfef"],
         ];
         return colors[Math.floor(Math.random() * colors.length)];
       };
@@ -53,14 +46,13 @@ function Contact() {
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        // Set initial position immediately on enter
         gsap.set(circle, {
           background: `radial-gradient(circle, ${color1} 0%, ${color2} 100%)`,
           opacity: 0,
           scale: 0,
           left: x,
           top: y,
-          xPercent: -50, // Center the circle on the cursor
+          xPercent: -50,
           yPercent: -50,
         });
 
@@ -80,8 +72,8 @@ function Contact() {
         gsap.to(circle, {
           left: x,
           top: y,
-          duration: 0.05, // Even faster response for smoother tracking
-          ease: "none", // Linear movement for precise following
+          duration: 0.05,
+          ease: "none",
         });
       };
 
@@ -97,6 +89,12 @@ function Contact() {
       button.addEventListener("mouseenter", handleMouseEnter);
       button.addEventListener("mousemove", handleMouseMove);
       button.addEventListener("mouseleave", handleMouseLeave);
+
+      return () => {
+        button.removeEventListener("mouseenter", handleMouseEnter);
+        button.removeEventListener("mousemove", handleMouseMove);
+        button.removeEventListener("mouseleave", handleMouseLeave);
+      };
     }
 
     // Schedule Button - White Overlay Slide Animation
@@ -106,10 +104,9 @@ function Contact() {
       const text = button.querySelector(".button-text");
       const icon = button.querySelector(".button-icon");
 
-      // Set initial state
       gsap.set(overlay, {
         y: "100%",
-        borderRadius: "70% 70% 0 0", // Organic curve at top
+        borderRadius: "70% 70% 0 0",
       });
 
       const handleMouseEnter = () => {
@@ -140,112 +137,13 @@ function Contact() {
 
       button.addEventListener("mouseenter", handleMouseEnter);
       button.addEventListener("mouseleave", handleMouseLeave);
+
+      return () => {
+        button.removeEventListener("mouseenter", handleMouseEnter);
+        button.removeEventListener("mouseleave", handleMouseLeave);
+      };
     }
-
-    // Letter reveal animation for subheading using your working pattern
-    if (!subheadingRef.current) return;
-
-    // Find all exclamation marks and set them initially hidden
-    const allExclamations =
-      subheadingRef.current.querySelectorAll(".exclamation-mark");
-    gsap.set(allExclamations, { opacity: 0 });
-
-    // Process each span separately to preserve layout
-    const spanElements =
-      subheadingRef.current.querySelectorAll("span.animate-text");
-
-    spanElements.forEach((span) => {
-      let clutter = "";
-      const splittedText = span.textContent.split("");
-
-      splittedText.forEach(function (char) {
-        if (char === " ") {
-          clutter += `<span>&nbsp;</span>`;
-        } else {
-          clutter += `<span style="opacity: 0">${char}</span>`;
-        }
-      });
-
-      span.innerHTML = clutter;
-    });
-
-    const spans = subheadingRef.current.querySelectorAll(
-      "span.animate-text span",
-    );
-
-    // Create ScrollTrigger for text animation
-    ScrollTrigger.create({
-      trigger: subheadingRef.current,
-      start: "top 95%",
-      end: "bottom -40%",
-      onEnter: () => {
-        gsap.fromTo(
-          spans,
-          { opacity: 0 },
-          {
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.05,
-            ease: "power2.out",
-            onComplete: () => {
-              // First reveal all exclamation marks
-              gsap.to(allExclamations, {
-                opacity: 1,
-                duration: 0.3,
-                onComplete: () => {
-                  // Then start blinking animation for all exclamation marks
-                  gsap.to(allExclamations, {
-                    opacity: 0.4,
-                    duration: 1.2,
-                    ease: "power2.inOut",
-                    yoyo: true,
-                    repeat: -1,
-                  });
-                },
-              });
-            },
-          },
-        );
-      },
-      onEnterBack: () => {
-        gsap.fromTo(
-          spans,
-          { opacity: 0 },
-          {
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.03,
-            ease: "power2.out",
-            onComplete: () => {
-              gsap.to(allExclamations, {
-                opacity: 1,
-                duration: 0.3,
-                onComplete: () => {
-                  gsap.to(allExclamations, {
-                    opacity: 0.4,
-                    duration: 1.2,
-                    ease: "power2.inOut",
-                    yoyo: true,
-                    repeat: -1,
-                  });
-                },
-              });
-            },
-          },
-        );
-      },
-      onLeave: () => {
-        gsap.killTweensOf([spans, allExclamations]);
-        gsap.to(spans, { opacity: 0, duration: 0.3 });
-        gsap.to(allExclamations, { opacity: 0, duration: 0.3 });
-      },
-      onLeaveBack: () => {
-        gsap.killTweensOf([spans, allExclamations]);
-        gsap.set(spans, { opacity: 0 });
-        gsap.set(allExclamations, { opacity: 0 });
-      },
-    });
-  });
+  }, []);
 
   // Gmail redirect logic
   const handleGmailClick = () => {
@@ -254,100 +152,99 @@ function Contact() {
   };
 
   return (
-    <div className="h-[70vh] sm:h-[60vh] text-white flex items-center justify-center px-4 pb-30">
-      <div className="max-w-4xl w-full text-center">
-        {/* Main Heading */}
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-7xl font-[bold] mb-6 leading-tight tracking-tight">
-          {/* Desktop: Single Line */}
-          <span className="hidden sm:block">
-            Slide into my inbox{" "}
-            <span className="inline-block animate-bounce duration-3000 transition-all">
-              👀
-            </span>
-          </span>
+    <footer className="relative h-[75vh] lg:min-h-screen bg-[#121315] text-white overflow-hidden">
+      {/* PixelBlast Background Effect */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none">
+        <PixelBlast
+          variant="square"
+          pixelSize={3}
+          color="#5a5a5a"
+          patternScale={2}
+          patternDensity={1}
+          pixelSizeJitter={0}
+          enableRipples
+          rippleSpeed={0.4}
+          rippleThickness={0.12}
+          rippleIntensityScale={1.5}
+          liquid={false}
+          liquidStrength={0.12}
+          liquidWobbleSpeed={5}
+          speed={0.5}
+          edgeFade={0.25}
+          transparent
+        />
+      </div>
 
-          {/* Mobile: Split into lines */}
-          <span className="sm:hidden">
-            Slide into my
-            <br />
-            inbox{" "}
-            <span className="inline-block animate-bounce duration-3000">
-              👀
-            </span>
-          </span>
-        </h1>
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-[75vh] lg:min-h-screen px-4 py-16">
+  
 
-        {/* Subheading */}
-        <p
-          ref={subheadingRef}
-          className="text-base sm:text-lg lg:text-xl mb-12 max-w-3xl mx-auto leading-relaxed text-[#6d6d6d]"
-        >
-          {/* Desktop: Single Line */}
-          <span className="hidden sm:block font-[medium]">
-            Let's turn{" "}
-            <i className="text-[#888888]">
-              <span className="animate-text">"just an idea"</span>
-            </i>{" "}
-            into damn, that's{" "}
-            <i className="text-[#a1a1a1] uppercase">
-              <span className="animate-text">brilliant</span>
-            </i>
-            <span className="text-[#a1a1a1] uppercase exclamation-mark">
-              <i>!</i>
-            </span>
-          </span>
+        {/* Main Name */}
+        <div className="text-center mb-8 md:mb-12">
+          <div className="text-6xl md:text-8xl lg:text-9xl font-[semibold] tracking-tighter leading-none mb-4">
+            MUSTAFA ALI
+          </div>
+        </div>
 
-          {/* Mobile: Split into two balanced lines */}
-          <span className="sm:hidden font-[medium] text-[4vw] leading-none">
-            Let's turn{" "}
-            <i>
-              <span className="animate-text">"just an idea"</span>
-            </i>
-            <br />
-            into damn, that's{" "}
-            <i>
-              <span className="animate-text uppercase">brilliant</span>
-            </i>
-            <span className="exclamation-mark">
-              <i>!</i>
-            </span>
-          </span>
-        </p>
+        {/* Social Links - Horizontal on desktop, stacked on mobile */}
+        <div className="flex md:flex-row gap-17 md:gap-37 mb-6 md:mb-8 text-sm md:text-base font-[regular]">
+          <a
+            href="https://linkedin.com/in/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-gray-400 transition-colors text-center"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://instagram.com/mustafaaa.ali/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-gray-400 transition-colors text-center"
+          >
+            Instagram
+          </a>
+          <a
+            href="https://wa.me/+96599806987"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-gray-400 transition-colors text-center"
+          >
+            WhatsApp
+          </a>
+        </div>
 
-        <div className="space-y-4 flex flex-col items-center max-w-md mx-auto">
-          {/* Gmail Button with Gradient Follower */}
+        {/* Buttons - Side by side on desktop, stacked on mobile */}
+        <div className="flex flex-col md:flex-row gap-4 mb-16 md:mb-20 w-full max-w-2xl px-4">
+          {/* Gmail Button */}
           <button
             ref={gmailButtonRef}
             onClick={handleGmailClick}
-            className="group bg-[#DDFF00] text-black w-82 h-12 rounded-full font-bold text-md font-[regular] hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-3 relative overflow-hidden"
+            className="group bg-white text-black w-full md:flex-1 h-12 rounded-full font-bold text-sm md:text-md font-[regular] hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-3 relative overflow-hidden"
           >
-            {/* Gradient Circle Follower */}
             <div
               ref={gradientCircleRef}
               className="absolute w-20 h-20 rounded-full pointer-events-none blur-sm opacity-0"
               style={{ mixBlendMode: "multiply" }}
             />
-
-            {/* Button Content */}
             <Send
-              size={20}
+              size={18}
               className="group-hover:translate-x-1 group-hover:translate-y-[-2px] transition-transform duration-300 ease-out relative z-10"
             />
-            <span className="relative z-10">{emailAddress}</span>
+            <span className="relative z-10 text-xs md:text-sm">
+              {emailAddress}
+            </span>
           </button>
 
-          {/* Schedule Call Button with White Overlay Slide */}
+          {/* Schedule Call Button */}
           <button
             ref={scheduleButtonRef}
             data-cal-namespace="breif-meeting"
             data-cal-link="mustafa-aly/breif-meeting"
             data-cal-config='{"layout":"month_view"}'
-            className="w-50 h-11 bg-zinc-800 text-white rounded-full font-[light] text-md hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center gap-3 relative overflow-hidden"
+            className="md:flex-1 h-12 bg-zinc-800 text-white rounded-full font-[light] text-sm md:text-md hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center gap-3 relative overflow-hidden"
           >
-            {/* White Overlay */}
             <div ref={whiteOverlayRef} className="absolute inset-0 bg-white" />
-
-            {/* Button Content */}
             <Calendar
               size={17}
               className="button-icon relative z-10 transition-colors duration-400"
@@ -357,9 +254,39 @@ function Contact() {
             </span>
           </button>
         </div>
+
+        {/* Tagline */}
+        <div className="text-2xl md:text-5xl lg:text-[6rem] font-[medium] text-white/40 mb-16 md:mb-20 text-center tracking-tight">
+          CREATIVE FRONTEND DEVELOPER
+        </div>
+
+        {/* Bottom Credits */}
+        <div className="flex flex-col md:flex-row items-center justify-between w-full lg:max-w-[85vw] gap-6 md:gap-0 text-xs md:text-sm text-zinc-300 font-[light] px-4 bg-red-00">
+          {/* Left: Copyright */}
+          <div className="text-center md:w-1/3 md:text-left md:text-[1vw] lg:text-[0.6vw]">
+            2025 .All right reserved. Mustafa Ali
+            <br className="lg:hidden" />
+            <span className="block ">
+              Any reproduction, distribution, or use of the materials without
+              permission is prohibited.
+            </span>
+          </div>
+
+          {/* Right: Website Design Credit */}
+          <div className="text-center text-[light] md:text-right">
+            <span className="block md:inline">WEBSITE DESIGN - </span>
+             MUSTAFA ALI
+          </div>
+
+          {/* FNSH Button - Desktop only, positioned at bottom right */}
+          <button className="hidden md:flex items-center justify-center gap-2 px-6 py-2 border border-zinc-600 rounded-full hover:bg-gray-800 transition-colors text-xs font-[light]">
+            <span>fnsh</span>
+            <span className="text-lg">•</span>
+          </button>
+        </div>
       </div>
-    </div>
+    </footer>
   );
 }
 
-export default Transition(Contact);
+export default Footer;

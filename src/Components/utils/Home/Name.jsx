@@ -3,6 +3,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Loader from "../../animation/Loader";
+import PixelBlast from '../../animation/PixelBlast';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -123,8 +125,9 @@ function Name() {
   return (
     <div className="h-screen ">
       {/* <Loader /> */}
+
       <div className="text-white relative overflow-hidden">
-        {/* Background MUSTAFA text */}
+
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-x-hidden">
           <h1 
             ref={backgroundTextRef}
