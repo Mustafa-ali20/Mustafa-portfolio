@@ -254,7 +254,7 @@ function ProjectsShowcase() {
         </div>
 
         <div className="flex items-center justify-center mt-13 lg:mt-20">
-          <button className="px-[2.3rem] py-[0.8rem]  bg-transparent border border-white/20 text-white font-[light] text-[0.75rem] tracking-[0.15em] cursor-pointer rounded-[50px] transition-all duration-300 ease-in-out z-10 hover:bg-white/05 hover:border-white/30 ">
+          <button className="px-[2.3rem] py-[0.8rem]  bg-transparent border border-white/20 text-white font-[light] text-[0.75rem] tracking-[0.15em] cursor-pointer rounded-[50px] transition-all duration-300 ease-in-out z-10 hover:bg-white hover:text-black">
             PROJECTS
           </button>
         </div>

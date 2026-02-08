@@ -96,53 +96,6 @@ function Footer() {
         button.removeEventListener("mouseleave", handleMouseLeave);
       };
     }
-
-    // Schedule Button - White Overlay Slide Animation
-    if (scheduleButtonRef.current && whiteOverlayRef.current) {
-      const button = scheduleButtonRef.current;
-      const overlay = whiteOverlayRef.current;
-      const text = button.querySelector(".button-text");
-      const icon = button.querySelector(".button-icon");
-
-      gsap.set(overlay, {
-        y: "100%",
-        borderRadius: "70% 70% 0 0",
-      });
-
-      const handleMouseEnter = () => {
-        gsap.to(overlay, {
-          y: "0%",
-          duration: 0.4,
-          ease: "power2.out",
-        });
-        gsap.to([text, icon], {
-          color: "#000000",
-          duration: 0.2,
-          ease: "power2.out",
-        });
-      };
-
-      const handleMouseLeave = () => {
-        gsap.to(overlay, {
-          y: "100%",
-          duration: 0.4,
-          ease: "power2.out",
-        });
-        gsap.to([text, icon], {
-          color: "#ffffff",
-          duration: 0.2,
-          ease: "power2.out",
-        });
-      };
-
-      button.addEventListener("mouseenter", handleMouseEnter);
-      button.addEventListener("mouseleave", handleMouseLeave);
-
-      return () => {
-        button.removeEventListener("mouseenter", handleMouseEnter);
-        button.removeEventListener("mouseleave", handleMouseLeave);
-      };
-    }
   }, []);
 
   // Gmail redirect logic
@@ -215,12 +168,12 @@ function Footer() {
         </div>
 
         {/* Buttons - Side by side on desktop, stacked on mobile */}
-        <div className="flex flex-col md:flex-row gap-4 mb-16 md:mb-20 w-full max-w-2xl px-4">
+        <div className="flex flex-col md:flex-row gap-4 mb-16 md:mb-20 px-4">
           {/* Gmail Button */}
           <button
             ref={gmailButtonRef}
             onClick={handleGmailClick}
-            className="group bg-white text-black w-full md:flex-1 h-12 rounded-full font-bold text-sm md:text-md font-[regular] hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-3 relative overflow-hidden"
+            className="group bg-white text-black w-82 md:flex-1 h-12 rounded-full font-bold text-sm md:text-md font-[regular] hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-3 relative overflow-hidden"
           >
             <div
               ref={gradientCircleRef}
@@ -233,24 +186,6 @@ function Footer() {
             />
             <span className="relative z-10 text-xs md:text-sm">
               {emailAddress}
-            </span>
-          </button>
-
-          {/* Schedule Call Button */}
-          <button
-            ref={scheduleButtonRef}
-            data-cal-namespace="breif-meeting"
-            data-cal-link="mustafa-aly/breif-meeting"
-            data-cal-config='{"layout":"month_view"}'
-            className="md:flex-1 h-12 bg-zinc-800 text-white rounded-full font-[light] text-sm md:text-md hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center gap-3 relative overflow-hidden"
-          >
-            <div ref={whiteOverlayRef} className="absolute inset-0 bg-white" />
-            <Calendar
-              size={17}
-              className="button-icon relative z-10 transition-colors duration-400"
-            />
-            <span className="button-text relative z-10 transition-colors duration-400">
-              Schedule a call
             </span>
           </button>
         </div>
