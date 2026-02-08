@@ -124,7 +124,7 @@ function Name() {
 
   return (
     <div className="h-screen ">
-      {/* <Loader /> */}
+      <Loader />
 
       <div className="text-white relative overflow-hidden">
 
