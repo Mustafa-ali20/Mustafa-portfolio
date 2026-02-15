@@ -120,13 +120,13 @@ function ProjectsShowcase() {
             className="overflow-hidden"
           >
             <motion.h1
-              className="text-7xl md:text-[5.5rem] lg:text-[10rem] font-[semibold] text-[rgb(90,90,90)] mb-3 uppercase"
+              className="text-7xl md:text-[5.5rem] lg:text-[10rem] font-[semibold] text-[rgb(90,90,90)] selection:bg-[rgb(90,90,90)] selection:text-[#121315] mb-3 uppercase "
               variants={headingVariants}
             >
               My Projects
             </motion.h1>
           </motion.div>
-          <p className="text-white mt-2 ml-1 md:ml-1.5 text-sm md:text-lg lg:text-xl font-[light]">
+          <p className="text-white mt-2 ml-1 md:ml-1.5 text-sm md:text-lg lg:text-xl font-[light] selection:bg-zinc-100 selection:text-[#121315]">
             <DecryptedText
               text="Explore my latest work and creative endeavors"
               animateOn="view"
@@ -271,7 +271,7 @@ function ProjectsShowcase() {
             {/* Left Text */}
             <div className="overflow-hidden ">
               <motion.p
-                className="text-2xl md:text-3xl lg:text-3xl font-[regular] text-white leading-relaxed"
+                className="text-2xl md:text-3xl lg:text-3xl font-[regular] text-white leading-relaxed selection:bg-zinc-100 selection:text-[#121315]"
                 variants={paragraphVariants}
               >
                 Driving measurable growth and engagement through thoughtful
@@ -282,7 +282,7 @@ function ProjectsShowcase() {
             {/* Right Text */}
             <div className="overflow-hidden">
               <motion.p
-                className="text-sm md:text-base lg:text-lg font-[light] text-[rgb(95,95,95)] leading-relaxed"
+                className="text-sm md:text-base lg:text-lg font-[light] text-[rgb(95,95,95)] leading-relaxed selection:bg-[rgb(95,95,95)] selection:text-[#121315]"
                 variants={paragraphVariants}
               >
                 Every product I build starts with understanding user goals and
@@ -315,7 +315,7 @@ function ProjectsShowcase() {
                 {/* Label with mask */}
                 <div className="overflow-hidden">
                   <motion.p
-                    className="text-xs md:text-sm font-[regular] text-[rgb(90,90,90)] uppercase tracking-wider "
+                    className="text-xs md:text-sm font-[regular] text-[rgb(90,90,90)] uppercase tracking-wider selection:bg-[rgb(95,95,95)] selection:text-[#121315]"
                     variants={labelVariants}
                   >
                     YEARS OF EXPERIENCE
@@ -323,7 +323,7 @@ function ProjectsShowcase() {
                 </div>
 
                 {/* Number - NO ANIMATION */}
-                <h3 className="text-6xl md:text-7xl lg:text-8xl font-[semibold] text-white mt-4">
+                <h3 className="text-6xl md:text-7xl lg:text-8xl font-[semibold] text-white mt-4 selection:bg-zinc-100 selection:text-[#121315]">
                   1+
                 </h3>
               </div>
@@ -341,7 +341,7 @@ function ProjectsShowcase() {
                 {/* Label with mask */}
                 <div className="overflow-hidden">
                   <motion.p
-                    className="text-xs md:text-sm font-[regular] text-[rgb(90,90,90)] uppercase tracking-wider "
+                    className="text-xs md:text-sm font-[regular] text-[rgb(90,90,90)] uppercase tracking-wider selection:bg-[rgb(95,95,95)] selection:text-[#121315]"
                     variants={labelVariants}
                   >
                     PROJECTS COMPLETED
@@ -349,7 +349,7 @@ function ProjectsShowcase() {
                 </div>
 
                 {/* Number - NO ANIMATION */}
-                <h3 className="text-6xl md:text-7xl lg:text-8xl font-[semibold] text-white mt-4">
+                <h3 className="text-6xl md:text-7xl lg:text-8xl font-[semibold] text-white mt-4 selection:bg-zinc-100 selection:text-[#121315]">
                   8+
                 </h3>
               </div>

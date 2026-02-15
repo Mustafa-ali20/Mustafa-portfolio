@@ -4,7 +4,7 @@ import { getCalApi } from "@calcom/embed-react";
 import { gsap } from "gsap";
 import PixelBlast from "../animation/PixelBlast";
 
-function Footer() {
+function Conatct() {
   const emailAddress = "mustafaramakda61@gmail.com";
 
   // Refs for button animations
@@ -224,4 +224,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default Conatct;

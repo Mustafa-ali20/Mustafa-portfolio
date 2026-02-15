@@ -167,7 +167,7 @@ const AboutMe = () => {
         {/* Description Section */}
         <div className="description">
           {descriptionLines.map((line, index) => (
-            <p key={index} className="description-line">
+            <p key={index} className="description-line selection:bg-zinc-100 selection:text-[#121315]">
               <DecryptedText
                 text={line}
                 animateOn="view"

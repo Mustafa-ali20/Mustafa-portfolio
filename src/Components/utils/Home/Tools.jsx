@@ -110,11 +110,11 @@ const Tools = () => {
       >
         <motion.h2
           variants={headingVariants}
-          className=" text-7xl md:text-[5.5rem] lg:text-[10rem] mb-3 font-[semibold] text-[rgb(90,90,90)] uppercase"
+          className=" text-7xl md:text-[5.5rem] lg:text-[10rem] mb-3 font-[semibold] text-[rgb(90,90,90)] uppercase selection:bg-[rgb(90,90,90)] selection:text-[#121315]"
         >
           Tech Stack
         </motion.h2>
-        <p className="w-full text-white ml-1 md:ml-1.5 text-sm md:text-lg lg:text-xl font-[light] ">
+        <p className="w-full text-white ml-1 md:ml-1.5 text-sm md:text-lg lg:text-xl font-[light] selection:bg-zinc-100 selection:text-[#121315]">
           <DecryptedText
             text=" A practical stack I work with on real projects."
             animateOn="view"
@@ -166,7 +166,7 @@ const Tools = () => {
                       speed={80}
                       maxIterations={30}
                       characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                      className="text-white text-md font-[light] whitespace-nowrap"
+                      className="text-white text-md font-[light] whitespace-nowrap selection:bg-zinc-100 selection:text-[#121315]"
                       encryptedClassName="text-white text-md font-[light] whitespace-nowrap"
                       animateOn="view"
                       revealDirection="start"

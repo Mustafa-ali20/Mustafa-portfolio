@@ -4,7 +4,7 @@ import AboutMe from "../utils/Home/AboutMe";
 import Tools from "../utils/Home/Tools";
 import Transition from "../animation/Transition";
 import ProjectsShowcase from "../utils/Home/ProjectsShowcase";
-import Contact from "./Contact";
+import Footer from "../utils/Home/Footer";
 
 function Home() {
   return (
@@ -13,7 +13,7 @@ function Home() {
       <AboutMe />
       <ProjectsShowcase />
       <Tools />
-      <Contact />
+      <Footer />
     </div>
   );
 }

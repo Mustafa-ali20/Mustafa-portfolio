@@ -1,0 +1,557 @@
+// =========================================
+// FOOTER - FULLY RESPONSIVE SCSS
+// Scales naturally from 5K → 4K → 27" → Laptop → Tablet → Mobile
+// =========================================
+
+// =========================================
+// VARIABLES
+// =========================================
+$color-bg: #121315;
+$color-white: #ffffff;
+$color-white-40: rgba(255, 255, 255, 0.57);
+$color-gray: #d4d4d8; // zinc-300
+$color-gray-600: #52525b; // zinc-600
+$color-gray-800: #ffffff; // zinc-800
+$color-black: #000000;
+
+// Font families (matching your Tailwind setup)
+$font-light: "light", sans-serif;
+$font-regular: "regular", sans-serif;
+$font-medium: "medium", sans-serif;
+$font-semibold: "semibold", sans-serif;
+$font-bold: "bold", sans-serif;
+
+// =========================================
+// MIXINS
+// =========================================
+
+// Responsive breakpoints
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin laptop-small {
+  @media (min-width: 1024px) and (max-width: 1439px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1440px) and (max-width: 1919px) {
+    @content;
+  }
+}
+
+@mixin desktop-large {
+  @media (min-width: 1920px) and (max-width: 2559px) {
+    @content;
+  }
+}
+
+@mixin desktop-4k {
+  @media (min-width: 2560px) and (max-width: 3839px) {
+    @content;
+  }
+}
+
+@mixin desktop-5k {
+  @media (min-width: 3840px) {
+    @content;
+  }
+}
+
+// =========================================
+// FOOTER CONTAINER
+// =========================================
+.footer {
+  position: relative;
+  min-height: auto; // Height determined by content
+  background-color: $color-bg;
+  color: $color-white;
+  overflow: hidden;
+
+  // Vertical padding - scales with viewport
+  padding-top: clamp(4rem, 8vh, 8rem);
+  padding-bottom: clamp(3rem, 6vh, 6rem);
+
+  @include mobile {
+    padding-top: clamp(3rem, 10vw, 5rem);
+    padding-bottom: clamp(2rem, 8vw, 4rem);
+  }
+}
+
+// =========================================
+// PIXELBLAST BACKGROUND
+// =========================================
+.footer__background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+// =========================================
+// CONTENT CONTAINER
+// =========================================
+.footer__content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 clamp(1rem, 3vw, 4rem);
+
+  @include mobile {
+    padding: 0 1.5rem;
+  }
+}
+
+// =========================================
+// NAME
+// =========================================
+.footer__name-wrapper {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__name {
+  font-family: $font-semibold;
+  font-weight: 600;
+  color: $color-white;
+  text-align: center;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin: 0 0 clamp(2rem, 4vh, 4rem) 0;
+
+  // Fluid font size across all screens
+  font-size: clamp(3rem, 6vw, 10rem);
+
+  // Fine-tune for specific ranges
+  @include mobile {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    margin-bottom: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  @include tablet {
+    font-size: clamp(4rem, 8vw, 6rem);
+  }
+
+  @include laptop-small {
+    font-size: clamp(5rem, 7vw, 7rem);
+  }
+
+  @include desktop {
+    font-size: clamp(6rem, 6.5vw, 8rem);
+  }
+
+  @include desktop-large {
+    font-size: clamp(7rem, 6vw, 9rem);
+  }
+
+  @include desktop-4k {
+    font-size: clamp(8rem, 5.5vw, 10rem);
+  }
+
+  @include desktop-5k {
+    font-size: clamp(9rem, 5vw, 12rem);
+  }
+}
+
+// =========================================
+// SOCIAL LINKS
+// =========================================
+.footer__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 4vw, 6rem);
+  margin-bottom: clamp(1.5rem, 3vh, 3rem);
+
+  @include mobile {
+    gap: clamp(1.5rem, 8vw, 3rem);
+    margin-bottom: clamp(1.5rem, 5vw, 2rem);
+  }
+}
+
+.footer__social-link-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.footer__social-link {
+  font-family: $font-regular;
+  font-size: clamp(0.875rem, 1.2vw, 1.25rem);
+  color: $color-white;
+  text-decoration: none;  // ← REMOVE underline
+  display: block;  // ← ADD THIS
+  position: relative;  // ← ADD THIS
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  @include mobile {
+    font-size: clamp(0.875rem, 3.5vw, 1rem);
+  }
+
+  @include desktop-4k {
+    font-size: clamp(1rem, 1vw, 1.5rem);
+  }
+
+  @include desktop-5k {
+    font-size: clamp(1.25rem, 0.9vw, 1.75rem);
+  }
+}
+
+// ← MOVE THIS OUTSIDE (separate class, not nested)
+.footer__social-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transform-origin: left center;
+  will-change: transform;
+}
+
+
+// =========================================
+// GMAIL BUTTON - SMALLER (except mobile)
+// =========================================
+.footer__button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.4rem, 0.8vw, 0.8rem);
+
+  background-color: $color-white;
+  color: $color-black;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  overflow: hidden;
+
+  font-family: $font-regular;
+  font-weight: bold;
+
+  // Reduced sizing for non-mobile
+  padding: clamp(0.6rem, 1.2vh, 0.8rem) clamp(1.2rem, 2.4vw, 2.4rem);
+  font-size: clamp(0.65rem, 0.95vw, 1rem);
+  height: clamp(2.4rem, 4.2vh, 3rem);
+  width: auto;
+  max-width: 90%;
+
+  margin-bottom: clamp(3rem, 6vh, 6rem);
+
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @include mobile {
+    // Keep mobile size unchanged
+    font-size: clamp(0.625rem, 3vw, 0.875rem);
+    padding: 0.75rem 1.5rem;
+    height: 2.5rem;
+    gap: 0.5rem;
+    margin-bottom: clamp(2rem, 8vw, 3rem);
+  }
+
+  @include desktop-4k {
+    font-size: clamp(0.9rem, 0.85vw, 1.3rem);
+    padding: 0.85rem 3rem;
+    height: clamp(3rem, 3.5vh, 3.8rem);
+  }
+
+  @include desktop-5k {
+    font-size: clamp(1.1rem, 0.8vw, 1.5rem);
+    padding: 1rem 3.4rem;
+    height: clamp(3.4rem, 3.5vh, 4.2rem);
+  }
+}
+
+.footer__button-gradient {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(0.5rem);
+  opacity: 0;
+  mix-blend-mode: multiply;
+}
+
+.footer__button-icon {
+  position: relative;
+  z-index: 10;
+  transition: transform 0.3s ease;
+
+  .footer__button:hover & {
+    transform: translate(0.25rem, -0.125rem);
+  }
+}
+
+.footer__button-text {
+  position: relative;
+  z-index: 10;
+  white-space: nowrap;
+
+  @include mobile {
+    font-size: 0.75rem;
+    
+  }
+}
+
+// =========================================
+// MAIN TAGLINE - BIGGER, SINGLE LINE
+// =========================================
+.footer__tagline {
+  font-family: $font-medium;
+  font-weight: 500;
+  color: $color-white-40;
+  text-align: center;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  white-space: nowrap; // NEVER wrap
+
+  // Fluid width with healthy padding
+  width: clamp(70%, 95vw, 95%);
+  max-width: 100%;
+  padding: 0 clamp(1rem, 2vw, 4rem);
+  margin: 0 auto clamp(3rem, 6vh, 6rem) auto;
+
+  // BIGGER font sizes - almost screen-covering for tablet+
+  font-size: clamp(3rem, 6.5vw, 9rem);
+
+  @include mobile {
+    // Keep mobile size reasonable
+    font-size: clamp(1.25rem, 5.3vw, 2rem);
+    width: 99%;
+    margin-bottom: clamp(2rem, 8vw, 3rem);
+  }
+
+  @include tablet {
+    // Much bigger for tablet
+    font-size: clamp(2.7rem, 4vw, 5rem);
+    width: 95%;
+  }
+
+  @include laptop-small {
+    // Bigger for small laptops
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    width: 90%;
+  }
+
+  @include desktop {
+    // Bigger for desktop
+    font-size: clamp(4.5rem, 5.5vw, 6rem);
+    width: 88%;
+  }
+
+  @include desktop-large {
+    // Bigger for large desktop
+    font-size: clamp(3rem, 5vw, 8rem);
+    width: 88%;
+  }
+
+  @include desktop-4k {
+    // Bigger for 4K
+    font-size: clamp(6rem, 5.5vw, 8rem);
+    width: 88%;
+  }
+
+  @include desktop-5k {
+    // Bigger for 5K
+    font-size: clamp(7rem, 5.2vw, 12rem);
+    width: 88%;
+  }
+}
+
+// =========================================
+// BOTTOM SECTION - CENTER ALIGNED
+// =========================================
+.footer__bottom {
+  display: flex;
+  align-items: center; // Changed from flex-start to center
+  justify-content: center; // Changed from space-between to center
+  gap: clamp(1rem, 4vw, 4rem);
+ 
+
+  // CRITICAL: Matches tagline width
+  width: clamp(70%, 85vw, 90%);
+  max-width: 100%;
+  padding: 0 clamp(0.8rem, 1.5vw, 0.8rem);
+
+  font-family: $font-light;
+  font-size: clamp(0.625rem, 1vw, 0.875rem);
+  color: $color-gray;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    gap: 1.5rem;
+  }
+
+  @include tablet {
+    width: 85%;
+    font-size: clamp(0.75rem, 1.2vw, 1rem);
+  }
+
+  @include laptop-small {
+    width: 80%;
+  }
+
+  @include desktop {
+    width: 80%;
+    font-size: clamp(0.75rem, 0.9vw, 1rem);
+  }
+
+  @include desktop-large {
+    width: 80%;
+    font-size: clamp(0.875rem, 0.85vw, 1.125rem);
+  }
+
+  @include desktop-4k {
+    width: 80%;
+    font-size: clamp(1rem, 0.75vw, 1.25rem);
+  }
+
+  @include desktop-5k {
+    width: 80%;
+    font-size: clamp(1.125rem, 0.7vw, 1.5rem);
+  }
+}
+
+// =========================================
+// BOTTOM - COPYRIGHT
+// =========================================
+.footer__bottom-copyright {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  @include mobile {
+    align-items: center;
+    width: 90%;
+  }
+}
+
+.footer__bottom-copyright-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.footer__bottom-year,
+.footer__bottom-text,
+.footer__bottom-disclaimer {
+  line-height: 1.4;
+}
+
+.footer__bottom-disclaimer {
+  display: block;
+  width: 50%;
+  margin-top: 0.25rem;
+
+   @include mobile {
+    align-items: center;
+    width: 90%;
+  }
+}
+
+// =========================================
+// BOTTOM - CREDIT
+// =========================================
+.footer__bottom-credit {
+  flex-shrink: 0;
+  text-align: center; // Center aligned
+
+  @include mobile {
+    text-align: center;
+  }
+}
+
+.footer__bottom-label {
+  margin-right: 0.25rem;
+}
+
+// =========================================
+// BOTTOM - FNSH BUTTON
+// =========================================
+.footer__bottom-button {
+  display: none; // Hidden on mobile
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  padding: 0.5rem 1.5rem;
+  border: 1px solid $color-gray-600;
+  border-radius: 9999px;
+  background-color: transparent;
+  color: $color-white;
+  cursor: pointer;
+
+  font-family: $font-light;
+  font-size: clamp(0.625rem, 0.8vw, 0.875rem);
+
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $color-gray-800;
+  }
+
+  @include laptop {
+    display: flex;
+  }
+
+  @include desktop-4k {
+    font-size: clamp(0.75rem, 0.7vw, 1rem);
+    padding: 0.75rem 2rem;
+  }
+
+  @include desktop-5k {
+    font-size: clamp(0.875rem, 0.65vw, 1.125rem);
+    padding: 0.875rem 2.25rem;
+  }
+}
+
+.footer__bottom-button-dot {
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+// =========================================
+// RESPONSIVE HELPER - Prevent Overflow
+// =========================================
+* {
+  box-sizing: border-box;
+}
