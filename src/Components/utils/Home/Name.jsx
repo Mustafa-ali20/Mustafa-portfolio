@@ -125,8 +125,7 @@ function Name() {
 
    return (
     <div className="h-screen relative">
-      {/* <Loader /> */}
-      
+      <Loader />
       {/* ColorBends Background - z-0, receives mouse events */}
       <div className="absolute inset-0 opacity-50 z-0">
         <ColorBends
