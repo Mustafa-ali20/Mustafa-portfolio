@@ -4,7 +4,7 @@ import AboutMe from "../utils/Home/AboutMe";
 import Tools from "../utils/Home/Tools";
 import Transition from "../animation/Transition";
 import ProjectsShowcase from "../utils/Home/ProjectsShowcase";
-import Footer from "../utils/Home/Footer";
+import Footer from "../utils/Shared/Footer";
 
 function Home() {
   return (
