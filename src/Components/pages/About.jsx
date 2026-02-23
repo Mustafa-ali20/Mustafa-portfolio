@@ -5,6 +5,7 @@ import Intro from "../utils/About/Intro";
 import AnimatedIntro from "../utils/About/AnimatedIntro";
 import Footer from "../utils/Shared/Footer";
 import FinishingIntro from "../utils/About/FininshingIntro";
+import TechnologyArsenal from "../utils/About/TechnologyArsenal";
 
 function About() {
   return (
@@ -12,6 +13,7 @@ function About() {
       <Intro />
       <AnimatedIntro />
       <FinishingIntro />
+      <TechnologyArsenal />
       <div className="mt-30">
         <Footer />
       </div>
