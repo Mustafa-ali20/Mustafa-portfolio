@@ -155,11 +155,15 @@ export default function AnimatedIntro() {
             role="img"
             aria-label="Profile image placeholder"
           >
-            IMG
+            <img
+              src="/Images/Me2.jpg "
+              alt=""
+              className="object-cover w-full h-full"
+            />
           </div>
 
           <p className="para-sm">
-            LATER, MY FATHER INTRODUCED ME TO WEB DEVELOPMENT, AND I REALIZED IT
+            LATER, I GOT INTRODUCED ME TO WEB DEVELOPMENT, AND I REALIZED IT
             WAS THE PERFECT SPACE WHERE TECHNOLOGY MEETS ARTISTRY.
           </p>
         </div>
