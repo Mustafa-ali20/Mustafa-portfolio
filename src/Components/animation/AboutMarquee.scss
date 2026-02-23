@@ -1,0 +1,48 @@
+// ── AboutMarquee ──────────────────────────────────────────────────────
+
+.about-marquee {
+width: 100%;
+max-width: 96%; // or whatever width you want (e.g., 80%, 800px)
+margin: 0 auto; // centers the marquee horizontally
+padding: 2rem 0;
+overflow: hidden;
+position: relative;
+
+@media (min-width: 768px) {
+    padding: 3rem 0;
+}
+@media (min-width: 1024px) {
+    padding: 4rem 0;
+}
+
+// Inner is just a full-width clip container
+.marquee-inner {
+  width: 100%;
+  overflow: hidden;
+}
+
+// Track holds all 4 copies side by side.
+// transform is driven by JS — no CSS animation here (avoids conflict).
+.marquee-track {
+  display: flex;
+  flex-wrap: nowrap;
+  will-change: transform; // hints GPU compositing for smooth motion
+  white-space: nowrap;
+}
+
+// Each copy of the text
+.marquee-copy {
+  display: inline-block;
+  flex-shrink: 0;
+  font-family: "light", sans-serif;
+  font-size: clamp(3rem, 8vw, 9rem);
+  line-height: 1;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  padding-right: 0; // spacing is baked into MARQUEE_TEXT via the ✦ separator
+
+  // Prevent text selection while scrolling
+  user-select: none;
+}
+}

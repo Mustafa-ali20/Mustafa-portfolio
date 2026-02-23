@@ -1,0 +1,42 @@
+.about-marquee {
+  width: 100%;
+  max-width: 96%;
+  margin: 0 auto;
+  padding: 2rem 0;
+  overflow: hidden;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .about-marquee {
+    padding: 3rem 0;
+  }
+}
+@media (min-width: 1024px) {
+  .about-marquee {
+    padding: 4rem 0;
+  }
+}
+.about-marquee .marquee-inner {
+  width: 100%;
+  overflow: hidden;
+}
+.about-marquee .marquee-track {
+  display: flex;
+  flex-wrap: nowrap;
+  will-change: transform;
+  white-space: nowrap;
+}
+.about-marquee .marquee-copy {
+  display: inline-block;
+  flex-shrink: 0;
+  font-family: "light", sans-serif;
+  font-size: clamp(3rem, 8vw, 9rem);
+  line-height: 1;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  padding-right: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}/*# sourceMappingURL=AboutMarquee.css.map */

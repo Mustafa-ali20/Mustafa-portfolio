@@ -56,7 +56,7 @@ const TechnologyArsenal = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-[#121315] py-16 px-8">
+    <section className="h-fit bg-[#121315] py-16 px-8">
       <div className="mx-auto">
         
         {/* Heading & Subheading */}

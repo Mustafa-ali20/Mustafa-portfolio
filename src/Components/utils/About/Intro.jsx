@@ -1,18 +1,109 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import DecryptedText from "../../animation/DecryptedText";
-import AboutMArquee from "../../animation/AboutMarquee"; // Placeholder - build this separately
+import AboutMArquee from "../../animation/AboutMarquee";
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Detects actual rendered lines via Range API, wraps them, animates
+const useLineReveal = (ref, deps = []) => {
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Small delay to ensure fonts/layout are settled
+    const raf = requestAnimationFrame(() => {
+      const text = el.innerText;
+      const words = text.split(" ");
+
+      // Rebuild element with span-wrapped words to measure
+      el.innerHTML = words
+        .map((w) => `<span class="gsap-word" style="display:inline-block;white-space:pre">${w} </span>`)
+        .join("");
+
+      const wordEls = el.querySelectorAll(".gsap-word");
+      const lineGroups = [];
+      let currentLine = [];
+      let currentTop = null;
+
+      wordEls.forEach((wordEl) => {
+        const top = Math.round(wordEl.getBoundingClientRect().top);
+        if (currentTop === null) currentTop = top;
+
+        if (top > currentTop + 4) {
+          lineGroups.push(currentLine);
+          currentLine = [wordEl];
+          currentTop = top;
+        } else {
+          currentLine.push(wordEl);
+        }
+      });
+      if (currentLine.length) lineGroups.push(currentLine);
+
+      // Wrap each line group in an overflow-hidden div
+      el.innerHTML = "";
+      lineGroups.forEach((group) => {
+        const wrapper = document.createElement("div");
+        wrapper.style.cssText = "overflow:hidden; display:block;";
+
+        const inner = document.createElement("div");
+        inner.className = "gsap-line";
+        inner.style.cssText = "display:block; will-change:transform;";
+        inner.textContent = group.map((w) => w.textContent.trimEnd()).join(" ");
+
+        wrapper.appendChild(inner);
+        el.appendChild(wrapper);
+      });
+
+      // Animate with GSAP + ScrollTrigger
+      const lines = el.querySelectorAll(".gsap-line");
+
+      gsap.fromTo(
+        lines,
+        { y: "110%" },
+        {
+          y: "0%",
+          duration: 0.75,
+          ease: "power3.out",
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: el,
+            start: "top 88%",
+            once: true,
+          },
+        }
+      );
+    });
+
+    return () => {
+      cancelAnimationFrame(raf);
+      ScrollTrigger.getAll().forEach((t) => {
+        if (t.vars?.trigger === ref.current) t.kill();
+      });
+    };
+  }, deps);
+};
+
+// Wrapper component — just pass className and text as children
+const RevealParagraph = ({ children, className }) => {
+  const ref = useRef(null);
+  useLineReveal(ref, [children]);
+
+  return (
+    <p ref={ref} className={className}>
+      {children}
+    </p>
+  );
+};
 
 const Intro = () => {
-  // Animation variants for heading
   const headingVariants = {
-    hidden: { y: "-100%" },
+    hidden: { y: "100%" },
     visible: {
       y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.33, 1, 0.68, 1],
-      },
+      transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] },
     },
   };
 
@@ -34,7 +125,9 @@ const Intro = () => {
               About Me
             </motion.h2>
           </div>
-          <p className="w-full max-w-5xl text-white ml-1 md:ml-1.5 text-sm md:text-lg lg:text-xl font-[light] leading-relaxed selection:bg-zinc-100 selection:text-[#121315]">
+
+          {/* Paragraph 1 */}
+          <RevealParagraph className="w-full max-w-5xl text-white ml-1 md:ml-1.5 text-sm md:text-lg lg:text-xl font-[light] leading-relaxed selection:bg-zinc-100 selection:text-[#121315]">
             I'm a front-end developer with around 60% backend knowledge,
             steadily moving toward becoming a full-stack developer. I enjoy
             building things that genuinely make life easier for users and
@@ -46,20 +139,21 @@ const Intro = () => {
             services. I focus heavily on real results and practical
             implementation. My goal is always the same: create fast, scalable,
             and meaningful tools that people actually enjoy using.
-          </p>
+          </RevealParagraph>
         </motion.div>
 
-        {/* Marquee Text Placeholder */}
+        {/* Marquee */}
         <div className="mb-16 md:mb-20 lg:mb-24">
           <AboutMArquee />
         </div>
 
-        {/* Main Content - 2 Column Layout */}
+        {/* 2 Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 xl:gap-14">
-          {/* Left Column - Description Text */}
           <div className="lg:px-8">
             <div className="space-y-6 md:space-y-8">
-              <p className="text-white text-sm md:text-base lg:text-lg font-[light] leading-relaxed selection:bg-zinc-100 selection:text-[#121315]">
+
+              {/* Paragraph 2 */}
+              <RevealParagraph className="text-white text-sm md:text-base lg:text-lg font-[light] leading-relaxed selection:bg-zinc-100 selection:text-[#121315]">
                 I'm a front-end developer transitioning into full-stack
                 development, combining strong UI expertise with growing backend
                 depth. I work primarily with React, Tailwind CSS, SCSS, GSAP,
@@ -67,9 +161,10 @@ const Intro = () => {
                 user interfaces. On the backend, I build structured and scalable
                 systems using Node.js, Express, and MongoDB, focusing on
                 performance, maintainability, and real-world usability.
-              </p>
+              </RevealParagraph>
 
-              <p className="text-white text-sm md:text-base lg:text-lg font-[light] leading-relaxed selection:bg-zinc-100 selection:text-[#121315]">
+              {/* Paragraph 3 */}
+              <RevealParagraph className="text-white text-sm md:text-base lg:text-lg font-[light] leading-relaxed selection:bg-zinc-100 selection:text-[#121315]">
                 My approach blends thoughtful design with solid
                 architecture—whether I'm creating smooth animations,
                 experimenting with Three.js for immersive 3D experiences, or
@@ -77,22 +172,28 @@ const Intro = () => {
                 deeply about clean UI, responsive layouts, and meaningful user
                 experiences while ensuring the backend logic remains reliable
                 and efficient.
-              </p>
+              </RevealParagraph>
 
-              <p className="text-white text-sm md:text-base lg:text-lg font-[light] leading-relaxed selection:bg-zinc-100 selection:text-[#121315]">
+              {/* Paragraph 4 */}
+              <RevealParagraph className="text-white text-sm md:text-base lg:text-lg font-[light] leading-relaxed selection:bg-zinc-100 selection:text-[#121315]">
                 What sets me apart is my ability to think across both layers of
                 an application. I design intuitive frontends, structure secure
                 backend services, manage databases, and connect everything into
                 a seamless product. I don't just build interfaces or servers—I
                 build complete, scalable web experiences that feel polished,
                 fast, and purposeful.
-              </p>
+              </RevealParagraph>
+
             </div>
           </div>
 
-          {/* Right Column - Image Placeholder */}
+          {/* Right Column - Image */}
           <div className="w-full h-[500px] md:h-[900px] lg:h-[1000px] lg:pr-8">
-            <img src="/Images/me.jpeg" alt="" className="w-full h-full rounded-lg object-cover" />
+            <img
+              src="/Images/me.jpeg"
+              alt=""
+              className="w-full h-full rounded-lg object-cover"
+            />
           </div>
         </div>
       </div>

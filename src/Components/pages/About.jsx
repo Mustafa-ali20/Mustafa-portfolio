@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-import { Waypoints, Calendar, ArrowUpRight } from "lucide-react";
 import Transition from "../animation/Transition";
 import Intro from "../utils/About/Intro";
 import AnimatedIntro from "../utils/About/AnimatedIntro";
@@ -11,7 +9,8 @@ function About() {
   return (
     <div>
       <Intro />
-      <AnimatedIntro />
+      <div className="mt-30 lg:mt-0"><AnimatedIntro /></div>
+      
       <FinishingIntro />
       <TechnologyArsenal />
       <div className="mt-30">
