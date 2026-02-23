@@ -1,0 +1,190 @@
+// ── Variables ──────────────────────────────────────────────────────────
+$bg: #121315;
+$text-dim: rgb(64, 64, 64);
+$text-mid: #3a3f3a;
+$text-bright: #fdfdfd;
+$text-rings: #a1a1a1;
+$border: #2a2f28;
+
+$font-heading: "semibold", sans-serif;
+$font-rings:   "light", sans-serif;
+$bp-lg:        1024px;
+
+// ── Base ───────────────────────────────────────────────────────────────
+.animated-intro {
+  background: $bg;
+  color: $text-mid;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  font-family: $font-rings;
+}
+
+// ── Grain overlay ──────────────────────────────────────────────────────
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
+}
+
+// ── Image / placeholder shared ─────────────────────────────────────────
+.image-placeholder {
+  background: #1a1f18;
+  border: 1px solid $border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-mid;
+  font-family: $font-rings;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+// ── Circle SVG text styling ────────────────────────────────────────────
+.circle-text-path {
+  fill: $text-rings;
+  font-family: $font-rings;
+  text-transform: uppercase;
+}
+
+// ══════════════════════════════════════════════════════════════════════
+//  LARGE SCREEN  (≥ 1024px)
+// ══════════════════════════════════════════════════════════════════════
+.intro-large {
+  display: none;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+
+  @media (min-width: $bp-lg) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  // ── Main heading ───────────────────────────────────────────────────
+  .main-heading {
+    position: relative; // anchor for absolutely placed image
+    z-index: 2;
+    padding: 0 3vw 0 3vw;
+    text-align: right;
+    font-family: $font-heading;
+    font-size: clamp(42px, 5vw, 160px);
+    // Perfectly consistent line-height — image no longer affects this
+    line-height: 0.88;
+    letter-spacing: -0.01em;
+    color: $text-dim;
+    text-transform: uppercase;
+    user-select: none;
+
+    .heading-line {
+      display: block;
+      white-space: normal;
+      // Every line now has identical line-height — no inline element interference
+    }
+  }
+
+  .heading-line-2 {
+  position: relative;
+  display: flex;
+  align-items: flex-start; // doesn't stretch line height
+  justify-content: space-between;
+}
+
+.center-image {
+  position: absolute;
+  // Now relative to the line span, not the heading
+  // Left offset = right after "SHAPED" + a small gap
+  left: 34.5%; // tune this — percentage of the line width
+  top: 10%;
+  width:  clamp(70px, 6vw, 140px);
+  height: clamp(95px, 8vw, 190px);
+  z-index: 3;
+}
+
+  // ── Circular text system ───────────────────────────────────────────
+  .circle-system {
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+
+    .circle-svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  // ── Small paragraph ────────────────────────────────────────────────
+.small-paragraph {
+  position: absolute;   // ← out of flow, won't push image at all
+  bottom: 300px;        // ← position relative to .main-heading
+  right: 34vw;           // ← aligned to heading's right edge
+  z-index: 20;
+  max-width: 340px;     // ← controls line breaks
+  font-family: $font-rings;
+  font-size: 17px;      // ← now you can freely change this
+  line-height: 1.7;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $text-bright;
+  text-align: left;
+}
+}
+
+// ══════════════════════════════════════════════════════════════════════
+//  SMALL / MEDIUM SCREEN  (< 1024px)  — unchanged, already perfect
+// ══════════════════════════════════════════════════════════════════════
+.intro-small {
+  display: block;
+  padding: 40px 24px 48px;
+  min-height: 100vh;
+
+  @media (min-width: $bp-lg) {
+    display: none;
+  }
+
+  .heading-sm {
+    font-family: $font-heading;
+    font-size: clamp(48px, 13vw, 84px);
+    line-height: 0.88;
+    letter-spacing: -0.01em;
+    color: $text-dim;
+    text-transform: uppercase;
+    text-align: right;
+    margin-bottom: 40px;
+
+    div { display: block; }
+  }
+
+  .image-para-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+  }
+
+  .image-placeholder-sm {
+    width: 180px;
+    min-width: 180px;
+    height: 240px;
+    flex-shrink: 0;
+  }
+
+  .para-sm {
+    font-family: $font-rings;
+    font-size: 11px;
+    line-height: 1.8;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $text-bright;
+    padding-bottom: 8px;
+    margin: 0;
+  }
+}
