@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import DecryptedText from "../../animation/DecryptedText";
 
 const TechnologyArsenal = () => {
-  // Animation variants for heading
+  const [hoveredTech, setHoveredTech] = useState(null);
+
   const headingVariants = {
     hidden: { y: "-100%" },
     visible: {
@@ -15,51 +16,28 @@ const TechnologyArsenal = () => {
     },
   };
 
-  // Technology categories
   const categories = [
     {
       title: "Languages & Frameworks",
-      technologies: [
-        "TypeScript",
-        "JavaScript",
-        "React",
-        "Next.js",
-        "Node.js",
-        "Express.js",
-      ],
+      technologies: ["TypeScript", "JavaScript", "React", "Next.js", "Node.js", "Express.js"],
     },
     {
       title: "3D & Graphics",
-      technologies: [
-        "GSAP",
-        "Framer Motion",
-      ],
+      technologies: ["GSAP", "Framer Motion"],
     },
     {
       title: "Databases & State",
-      technologies: [
-        "PostgreSQL",
-        "MongoDB",
-        "React Query",
-        "Zustand",
-      ],
+      technologies: ["PostgreSQL", "MongoDB", "React Query", "Redux"],
     },
     {
       title: "UI & Styling",
-      technologies: [
-        "Tailwind CSS",
-        "ShadCN UI",
-        "MUI",
-        "Framer Motion",
-      ],
+      technologies: ["Tailwind CSS", "ShadCN UI", "MUI", "Framer Motion"],
     },
   ];
 
   return (
     <section className="h-fit bg-[#121315] py-16 px-8">
       <div className="mx-auto">
-        
-        {/* Heading & Subheading */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -87,25 +65,47 @@ const TechnologyArsenal = () => {
           </p>
         </motion.div>
 
-        {/* Technology Categories Grid */}
         <div className="lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-18">
           {categories.map((category, index) => (
             <div key={index} className="space-y-6">
-              {/* Category Title */}
               <h3 className="text-xl md:text-2xl font-[regular] text-white">
                 {category.title}
               </h3>
 
-              {/* Technology Buttons */}
               <div className="flex flex-wrap gap-3">
-                {category.technologies.map((tech, techIndex) => (
-                  <button
-                    key={techIndex}
-                    className="px-4 py-2 bg-[#1a1b1f] text-white text-sm md:text-base font-[light] rounded-lg hover:bg-[#22232a] transition-colors duration-200 cursor-default"
-                  >
-                    {tech}
-                  </button>
-                ))}
+                {category.technologies.map((tech, techIndex) => {
+                  const key = `${index}-${techIndex}`;
+                  const isHovered = hoveredTech === key;
+
+                  return (
+                    <p
+                      key={techIndex}
+                      onMouseEnter={() => setHoveredTech(key)}
+                      onMouseLeave={() => setHoveredTech(null)}
+                      className={`px-4 py-2 text-sm md:text-base font-[light] rounded-lg transition-colors duration-200 cursor-default hover:outline-2 -outline-offset-4 ${
+                        isHovered
+                          ? "bg-white text-[#121315]"
+                          : "bg-[#1a1b1f] text-white"
+                      }`}
+                    >
+                      {isHovered ? (
+                        <DecryptedText
+                          text={tech}
+                          speed={80}
+                          maxIterations={15}
+                          characters="abcdefghijklmnopqrstuvwxyz"
+                          className="font-[light]"
+                          encryptedClassName="font-[light]"
+                          animateOn="view"
+                          sequential
+                          useOriginalCharsOnly={true}
+                        />
+                      ) : (
+                        tech
+                      )}
+                    </p>
+                  );
+                })}
               </div>
             </div>
           ))}

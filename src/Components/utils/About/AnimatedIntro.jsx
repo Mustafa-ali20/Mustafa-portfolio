@@ -327,7 +327,7 @@ export default function AnimatedIntro() {
 
         {/* ── Small paragraph with line reveal ── */}
         <p ref={smallParagraphRef} className="small-paragraph">
-          LATER, I GOT INTRODUCED ME TO WEB DEVELOPMENT, AND I REALIZED IT WAS
+          LATER, I GOT INTRODUCED TO WEB DEVELOPMENT, AND I REALIZED IT WAS
           THE PERFECT SPACE WHERE TECHNOLOGY MEETS ARTISTRY.
         </p>
       </div>
@@ -379,7 +379,7 @@ export default function AnimatedIntro() {
           
           {/* Paragraph with line reveal */}
           <p ref={paraSmRef} className="para-sm">
-            LATER, I GOT INTRODUCED ME TO WEB DEVELOPMENT, AND I REALIZED IT WAS
+            LATER, I GOT INTRODUCED TO WEB DEVELOPMENT, AND I REALIZED IT WAS
             THE PERFECT SPACE WHERE TECHNOLOGY MEETS ARTISTRY.
           </p>
         </div>

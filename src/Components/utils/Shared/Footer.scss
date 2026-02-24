@@ -79,7 +79,11 @@ $font-bold: "bold", sans-serif;
 // =========================================
 .footer {
   position: relative;
-  min-height: auto; // Height determined by content
+  min-height: auto;
+
+  @include mobile {
+    min-height: 55vh;
+  }
   background-color: $color-bg;
   color: $color-white;
   overflow: hidden;
@@ -204,9 +208,9 @@ $font-bold: "bold", sans-serif;
   font-family: $font-regular;
   font-size: clamp(0.875rem, 1.2vw, 1.25rem);
   color: $color-white;
-  text-decoration: none;  // ← REMOVE underline
-  display: block;  // ← ADD THIS
-  position: relative;  // ← ADD THIS
+  text-decoration: none; // ← REMOVE underline
+  display: block; // ← ADD THIS
+  position: relative; // ← ADD THIS
   transition: color 0.3s ease;
 
   &:hover {
@@ -237,7 +241,6 @@ $font-bold: "bold", sans-serif;
   transform-origin: left center;
   will-change: transform;
 }
-
 
 // =========================================
 // GMAIL BUTTON - SMALLER (except mobile)
@@ -324,7 +327,6 @@ $font-bold: "bold", sans-serif;
 
   @include mobile {
     font-size: 0.75rem;
-    
   }
 }
 
@@ -401,7 +403,6 @@ $font-bold: "bold", sans-serif;
   align-items: center; // Changed from flex-start to center
   justify-content: center; // Changed from space-between to center
   gap: clamp(1rem, 4vw, 4rem);
- 
 
   // CRITICAL: Matches tagline width
   width: clamp(70%, 85vw, 90%);
@@ -482,7 +483,7 @@ $font-bold: "bold", sans-serif;
   width: 50%;
   margin-top: 0.25rem;
 
-   @include mobile {
+  @include mobile {
     align-items: center;
     width: 90%;
   }
