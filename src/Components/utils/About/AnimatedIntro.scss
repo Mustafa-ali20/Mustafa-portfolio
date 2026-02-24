@@ -7,17 +7,21 @@ $text-rings: #a1a1a1;
 $border: #2a2f28;
 
 $font-heading: "semibold", sans-serif;
-$font-rings:   "light", sans-serif;
-$bp-lg:        1024px;
+$font-rings: "light", sans-serif;
+$bp-lg: 1024px;
 
 // ── Base ───────────────────────────────────────────────────────────────
 .animated-intro {
   background: $bg;
   color: $text-mid;
-  min-height: 100vh;
+  min-height: 70vh; // Reduced for mobile
   overflow: hidden;
   position: relative;
   font-family: $font-rings;
+
+  @media (min-width: $bp-lg) {
+    min-height: 100vh; // Full height on desktop
+  }
 }
 
 // ── Grain overlay ──────────────────────────────────────────────────────
@@ -91,22 +95,23 @@ $bp-lg:        1024px;
   }
 
   .heading-line-2 {
-  position: relative;
-  display: flex;
-  align-items: flex-start; // doesn't stretch line height
-  justify-content: space-between;
-}
+    position: relative;
+    display: flex;
+    align-items: flex-start; // doesn't stretch line height
+    justify-content: space-between;
+  }
 
-.center-image {
-  position: absolute;
-  // Now relative to the line span, not the heading
-  // Left offset = right after "SHAPED" + a small gap
-  left: 34.5%; // tune this — percentage of the line width
-  top: 10%;
-  width:  clamp(70px, 6vw, 140px);
-  height: clamp(95px, 8vw, 190px);
-  z-index: 3;
-}
+  .center-image {
+    position: absolute;
+    // Now relative to the line span, not the heading
+    // Left offset = right after "SHAPED" + a small gap
+    left: 34.5%; // tune this — percentage of the line width
+    top: 10%;
+    object-fit: cover;
+    width: clamp(70px, 6vw, 140px);
+    height: clamp(95px, 8vw, 190px);
+    z-index: 3;
+  }
 
   // ── Circular text system ───────────────────────────────────────────
   .circle-system {
@@ -123,20 +128,20 @@ $bp-lg:        1024px;
   }
 
   // ── Small paragraph ────────────────────────────────────────────────
-.small-paragraph {
-  position: absolute;   // ← out of flow, won't push image at all
-  bottom: 300px;        // ← position relative to .main-heading
-  right: 34vw;           // ← aligned to heading's right edge
-  z-index: 20;
-  max-width: 340px;     // ← controls line breaks
-  font-family: $font-rings;
-  font-size: 17px;      // ← now you can freely change this
-  line-height: 1.7;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: $text-bright;
-  text-align: left;
-}
+  .small-paragraph {
+    position: absolute; // ← out of flow, won't push image at all
+    bottom: 300px; // ← position relative to .main-heading
+    right: 34vw; // ← aligned to heading's right edge
+    z-index: 20;
+    max-width: 340px; // ← controls line breaks
+    font-family: $font-rings;
+    font-size: 17px; // ← now you can freely change this
+    line-height: 1.7;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $text-bright;
+    text-align: left;
+  }
 }
 
 // ══════════════════════════════════════════════════════════════════════
@@ -145,7 +150,7 @@ $bp-lg:        1024px;
 .intro-small {
   display: block;
   padding: 40px 24px 48px;
-  min-height: 100vh;
+  min-height: auto; // Let content determine height on mobile
 
   @media (min-width: $bp-lg) {
     display: none;
@@ -153,7 +158,7 @@ $bp-lg:        1024px;
 
   .heading-sm {
     font-family: $font-heading;
-    font-size: clamp(48px, 13vw, 84px);
+    font-size: clamp(28px, 7vw, 64px);
     line-height: 0.88;
     letter-spacing: -0.01em;
     color: $text-dim;
@@ -161,7 +166,9 @@ $bp-lg:        1024px;
     text-align: right;
     margin-bottom: 40px;
 
-    div { display: block; }
+    div {
+      display: block;
+    }
   }
 
   .image-para-row {

@@ -20,7 +20,10 @@ const useLineReveal = (ref, deps = []) => {
 
       // Rebuild element with span-wrapped words to measure
       el.innerHTML = words
-        .map((w) => `<span class="gsap-word" style="display:inline-block;white-space:pre">${w} </span>`)
+        .map(
+          (w) =>
+            `<span class="gsap-word" style="display:inline-block;white-space:pre">${w} </span>`,
+        )
         .join("");
 
       const wordEls = el.querySelectorAll(".gsap-word");
@@ -73,7 +76,7 @@ const useLineReveal = (ref, deps = []) => {
             start: "top 88%",
             once: true,
           },
-        }
+        },
       );
     });
 
@@ -151,7 +154,6 @@ const Intro = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 xl:gap-14">
           <div className="lg:px-8">
             <div className="space-y-6 md:space-y-8">
-
               {/* Paragraph 2 */}
               <RevealParagraph className="text-white text-sm md:text-base lg:text-lg font-[light] leading-relaxed selection:bg-zinc-100 selection:text-[#121315]">
                 I'm a front-end developer transitioning into full-stack
@@ -183,7 +185,6 @@ const Intro = () => {
                 build complete, scalable web experiences that feel polished,
                 fast, and purposeful.
               </RevealParagraph>
-
             </div>
           </div>
 
