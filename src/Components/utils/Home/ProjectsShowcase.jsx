@@ -20,17 +20,28 @@ function ProjectsShowcase() {
     },
     {
       id: 2,
-      title: "K72 Agency",
+      title: "Ocean View Hotel",
       description:
-        "K72 Agency delivers bold, creative, and impactful brand strategies.",
-      href: "https://k72-agency.vercel.app/",
-      gradient: "from-sky-200 via-blue-100 to-slate-100",
+        "A modern, responsive hotel website with smooth animations, showcasing rooms, amenities, and easy booking for an exceptional user experience.",
+      href: "https://ocean-view-hotel.vercel.app/",
+      gradient: "from-slate-800 via-purple-700 to-blue-800",
       radialGradient:
-        "radial-gradient(120% 80% at 50% 0%, rgba(186,230,253,0.35) 0%, rgba(219,234,254,0.12) 35%, rgba(241,245,249,0) 70%)",
-      image: "/Images/K72.png",
+        "radial-gradient(120% 180% at 50% 0%, rgba(220, 200, 170, 0.35) 0%, rgba(20, 40, 80, 0.25) 30%, rgba(220, 200, 170, 0) 70%)",
+      image: "/Images/ocean-view.png",
     },
     {
       id: 3,
+      title: "Instagram Clone",
+      description:
+        "Full-MERN Stack Instagram clone built with React and Node.js featuring authentication, authorization, CRUD operations, image uploads, and secure JWT-based user sessions.",
+      href: "https://insta-clone-backend-six.vercel.app/",
+      gradient: "from-slate-800 via-purple-700 to-blue-800",
+      radialGradient:
+        "radial-gradient(120% 180% at 50% 0%, rgba(131, 58, 180, 0.25) 0%, rgba(225, 48, 108, 0.25) 30%, rgba(239, 68, 68, 0) 70%)",
+      image: "/Images/instagram.png",
+    },
+    {
+      id: 4,
       title: "Movie Site",
       description: "Discover and explore movies with ratings and reviews.",
       href: "https://scsdb-movieweb.vercel.app/",
@@ -38,16 +49,6 @@ function ProjectsShowcase() {
       radialGradient:
         "radial-gradient(120% 180% at 50% 0%, rgba(30,41,59,0.35) 0%, rgba(126,34,206,0.12) 35%, rgba(30,64,175,0) 70%)",
       image: "/Images/movie-app.png",
-    },
-    {
-      id: 4,
-      title: "ExoApe Clone",
-      description: "Modern creative agency website with stunning animations.",
-      href: "https://exo-ape-ten.vercel.app/",
-      gradient: "from-sky-200 via-blue-100 to-slate-100",
-      radialGradient:
-        "radial-gradient(120% 80% at 50% 0%, rgba(186,230,253,0.35) 0%, rgba(219,234,254,0.12) 35%, rgba(241,245,249,0) 70%)",
-      image: "/Images/Exo-Ape.png",
     },
   ];
 
