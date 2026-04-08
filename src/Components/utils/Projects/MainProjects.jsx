@@ -32,7 +32,7 @@ const MainProjects = () => {
       title: "Ocean View Hotel",
       description:
         "A modern, responsive hotel website with smooth animations, showcasing rooms, amenities, and easy booking for an exceptional user experience.",
-      href: "https://ocean-view-hotel.vercel.app/",
+      href: "https://www.oceanviewkw.com/",
       gradient: "from-slate-800 via-purple-700 to-blue-800",
       radialGradient:
         "radial-gradient(120% 180% at 50% 0%, rgba(220, 200, 170, 0.35) 0%, rgba(20, 40, 80, 0.25) 30%, rgba(220, 200, 170, 0) 70%)",
