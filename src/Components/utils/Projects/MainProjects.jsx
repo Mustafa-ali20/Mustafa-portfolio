@@ -40,6 +40,17 @@ const MainProjects = () => {
     },
     {
       id: 3,
+      title: "Perplexity AI",
+      description:
+        "A full-stack AI-powered search assistant inspired by Perplexity AI. It integrates multiple LLMs including Google Gemini and Mistral AI with real-time streaming via Socket.io. Features include JWT authentication, Google OAuth, guest access.",
+      href: "https://perplexity-beryl.vercel.app/",
+      gradient: "from-slate-800 via-purple-700 to-blue-800",
+      radialGradient:
+        "radial-gradient(120% 180% at 50% 0%, rgba(13, 17, 23, 0.95) 0%, rgba(49, 184, 198, 0.15) 30%, rgba(13, 17, 23, 0) 70%)",
+      image: "/Images/Perplexity.png",
+    },
+    {
+      id: 4,
       title: "Instagram Clone",
       description:
         "Full-MERN Stack Instagram clone built with React and Node.js featuring authentication, authorization, CRUD operations, image uploads, and secure JWT-based user sessions.",
@@ -50,7 +61,7 @@ const MainProjects = () => {
       image: "/Images/instagram.png",
     },
     {
-      id: 4,
+      id: 5,
       title: "Movie Site",
       description: "Discover and explore movies with ratings and reviews.",
       href: "https://scsdb-movieweb.vercel.app/",
@@ -60,7 +71,7 @@ const MainProjects = () => {
       image: "/Images/movie-app.png",
     },
     {
-      id: 5,
+      id: 6,
       title: "K72 Agency",
       description:
         "K72 Agency delivers bold, creative, and impactful brand strategies.",
@@ -71,7 +82,7 @@ const MainProjects = () => {
       image: "/Images/K72.png",
     },
     {
-      id: 6,
+      id: 7,
       title: "ExoApe Clone",
       description: "Modern creative agency website with stunning animations.",
       href: "https://exo-ape-ten.vercel.app/",
@@ -81,7 +92,7 @@ const MainProjects = () => {
       image: "/Images/Exo-Ape.png",
     },
     {
-      id: 7,
+      id: 8,
       title: "Refokus Clone",
       description:
         "Awwward-winning design agency portfolio with interactive elements.",
@@ -92,7 +103,7 @@ const MainProjects = () => {
       image: "/Images/Refokus.png",
     },
     {
-      id: 8,
+      id: 9,
       title: "Task Assigner (Under Development)",
       description:
         "Efficient task assignment and management platform. Admin and employee side.",

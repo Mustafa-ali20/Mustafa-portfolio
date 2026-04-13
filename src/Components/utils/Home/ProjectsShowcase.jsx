@@ -31,6 +31,17 @@ function ProjectsShowcase() {
     },
     {
       id: 3,
+      title: "Perplexity AI",
+      description:
+        "A full-stack AI-powered search assistant inspired by Perplexity AI. It integrates multiple LLMs including Google Gemini and Mistral AI with real-time streaming via Socket.io. Features include JWT authentication, Google OAuth, guest access.",
+      href: "https://perplexity-beryl.vercel.app/",
+      gradient: "from-slate-800 via-purple-700 to-blue-800",
+      radialGradient:
+        "radial-gradient(120% 180% at 50% 0%, rgba(13, 17, 23, 0.95) 0%, rgba(49, 184, 198, 0.15) 30%, rgba(13, 17, 23, 0) 70%)",
+      image: "/Images/Perplexity.png",
+    },
+    {
+      id: 4,
       title: "Instagram Clone",
       description:
         "Full-MERN Stack Instagram clone built with React and Node.js featuring authentication, authorization, CRUD operations, image uploads, and secure JWT-based user sessions.",
@@ -39,16 +50,6 @@ function ProjectsShowcase() {
       radialGradient:
         "radial-gradient(120% 180% at 50% 0%, rgba(131, 58, 180, 0.25) 0%, rgba(225, 48, 108, 0.25) 30%, rgba(239, 68, 68, 0) 70%)",
       image: "/Images/instagram.png",
-    },
-    {
-      id: 4,
-      title: "Movie Site",
-      description: "Discover and explore movies with ratings and reviews.",
-      href: "https://scsdb-movieweb.vercel.app/",
-      gradient: "from-slate-800 via-purple-700 to-blue-800",
-      radialGradient:
-        "radial-gradient(120% 180% at 50% 0%, rgba(30,41,59,0.35) 0%, rgba(126,34,206,0.12) 35%, rgba(30,64,175,0) 70%)",
-      image: "/Images/movie-app.png",
     },
   ];
 
@@ -351,7 +352,7 @@ function ProjectsShowcase() {
 
                 {/* Number - NO ANIMATION */}
                 <h3 className="text-6xl md:text-7xl lg:text-8xl font-[semibold] text-white mt-4 selection:bg-zinc-100 selection:text-[#121315]">
-                  8+
+                  9+
                 </h3>
               </div>
             </div>
