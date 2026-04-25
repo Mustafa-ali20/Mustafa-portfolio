@@ -237,8 +237,8 @@ export default function AnimatedIntro() {
   }, []);
 
   const outerText =
-    "FRONTEND DEV ✦ CREATIVE ✦ 2026 ✦ FRONTEND DEV ✦ CREATIVE ✦ ";
-  const midText = " FRONT END DEV ✦ CREATIVE ✦ 21 ✦ FRONT END ✦ ";
+    "FRONTEND DEV ✦ CREATIVE ✦ 2026 ✦ FULLSTACK DEV ✦ CREATIVE ✦ ";
+  const midText = " BACK END DEV ✦ CREATIVE ✦ 21 ✦ BACK END ✦ ";
   const innerText = "DEV ✦ CREATIVE ✦ 21 ✦ 05 ";
 
   return (

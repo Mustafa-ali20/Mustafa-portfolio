@@ -4,10 +4,10 @@ import Home from "./Components/pages/Home";
 import Projects from "./Components/pages/Projects";
 import About from "./Components/pages/About";
 import Navbar from "./Components/Navbar";
-import Contact from "./Components/pages/Contact";
 import Lenis from "lenis";
 import ScrollToTop from "./Components/ScrollToTop";
 import { AnimatePresence } from "framer-motion";
+import Footer from "./Components/utils/Shared/Footer";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -18,7 +18,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={<Footer />} />
       </Routes>
     </AnimatePresence>
   );

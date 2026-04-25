@@ -276,7 +276,7 @@ function Footer() {
         {/* Main Tagline - Single Line, Fluid Width */}
         <div className="footer__tagline selection:bg-zinc-100 selection:text-[#121315]">
           <DecryptedText
-            text="CREATIVE FRONTEND DEVELOPER"
+            text="CREATIVE FULLSTACK DEVELOPER"
             animateOn="view"
             encryptedClassName="text-[rgba(255, 255, 255, 0.57)]"
             className="text-[rgba(255, 255, 255, 0.57)]"

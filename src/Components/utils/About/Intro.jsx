@@ -131,15 +131,19 @@ const Intro = () => {
 
           {/* Paragraph 1 */}
           <RevealParagraph className="w-full max-w-5xl text-white ml-1 md:ml-1.5 text-sm md:text-lg lg:text-xl font-[light] leading-relaxed selection:bg-zinc-100 selection:text-[#121315]">
-            I'm a front-end developer with around 60% backend knowledge,
-            steadily moving toward becoming a full-stack developer. I enjoy
-            building things that genuinely make life easier for users and
-            businesses. Most of my work currently sits at the intersection of
-            clean UI development and structured backend logic, as I continue
-            expanding into full-stack architecture. I like taking ideas from the
-            first concept all the way to a polished product—whether that means
-            designing a clean React interface or structuring reliable backend
-            services. I focus heavily on real results and practical
+            I’m a full-stack developer with strong command over both frontend
+            and backend systems. I enjoy building solutions that genuinely make
+            life easier for users and businesses. My work sits at the
+            intersection of clean, intuitive UI development and robust, scalable
+            backend architecture. I take ideas from initial concept all the way
+            to a polished, production-ready product whether that means crafting
+            high-performance React interfaces, designing efficient APIs, or
+            structuring reliable server-side systems. I also have a solid
+            understanding of system design principles, focusing on scalability,
+            performance, and maintainability in real-world applications.
+            Alongside this, I actively work with modern generative AI concepts
+            and integrations, leveraging them to build smarter, more dynamic
+            products. I focus heavily on real results and practical
             implementation. My goal is always the same: create fast, scalable,
             and meaningful tools that people actually enjoy using.
           </RevealParagraph>
@@ -156,11 +160,11 @@ const Intro = () => {
             <div className="space-y-6 md:space-y-8">
               {/* Paragraph 2 */}
               <RevealParagraph className="text-white text-sm md:text-base lg:text-lg font-[light] leading-relaxed selection:bg-zinc-100 selection:text-[#121315]">
-                I'm a front-end developer transitioning into full-stack
-                development, combining strong UI expertise with growing backend
-                depth. I work primarily with React, Tailwind CSS, SCSS, GSAP,
-                and Framer Motion to craft clean, modern, and highly interactive
-                user interfaces. On the backend, I build structured and scalable
+                I'm a full-stack developer delivering end-to-end applications,
+                combining strong UI expertise with deep backend capability. I
+                work primarily with React, Tailwind CSS, SASS, GSAP, and Framer
+                Motion to craft clean, modern, and highly interactive user
+                interfaces. On the backend, I build structured and scalable
                 systems using Node.js, Express, and MongoDB, focusing on
                 performance, maintainability, and real-world usability.
               </RevealParagraph>

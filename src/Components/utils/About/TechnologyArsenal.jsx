@@ -27,11 +27,15 @@ const TechnologyArsenal = () => {
     },
     {
       title: "Databases & State",
-      technologies: ["PostgreSQL", "MongoDB", "React Query", "Redux"],
+      technologies: ["PostgreSQL", "MongoDB", "React Query", "Redux", "Redis"],
     },
     {
       title: "UI & Styling",
       technologies: ["Tailwind CSS", "ShadCN UI", "MUI", "Framer Motion"],
+    },
+    {
+      title: "AI & Machine Learning",
+      technologies: ["OpenAI", "LangChain", "LangGraph", "RAG", "Vector Embedding"],
     },
   ];
 

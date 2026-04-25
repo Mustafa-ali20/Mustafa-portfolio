@@ -14,7 +14,7 @@ const AboutMe = () => {
   const imageRef = useRef(null); // New ref for image
 
   const descriptionLines = [
-    "HI, I'M MUSTAFA - A CREATIVE FRONTEND DEVELOPER.",
+    "HI, I'M MUSTAFA - A CREATIVE FULLSTACK DEVELOPER.",
     "MY FOCUS IS ON BUILDING SLEEK, ANIMATED, AND IMMERSIVE EXPERIENCES",
     "THAT TRANSFORM SIMPLE WEBSITES INTO SOMETHING EXTRAORDINARY.",
   ];
